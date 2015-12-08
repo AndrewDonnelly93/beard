@@ -9,10 +9,12 @@ function slimScrollInitialise(className) {
   });
 }
 
+//http://stackoverflow.com/questions/993834/adding-post-parameters-before-submit
+
 function GeneralPrice() {
   this.sliderTimeCost = 0;
   this.sliderHeroesCost = 0;
-  this.questCost = 0;
+  this.siteCost = 0;
   this.placeCost = 0;
   this.featuresCost = 0;
   this.cost = 0;
@@ -28,8 +30,8 @@ GeneralPrice.prototype.setSliderHeroesCost = function(value) {
   this.setCost();
 };
 
-GeneralPrice.prototype.setQuestCost = function(value) {
-  this.questCost = value;
+GeneralPrice.prototype.setSiteCost = function(value) {
+  this.siteCost = value;
   this.setCost();
 };
 
@@ -50,7 +52,7 @@ GeneralPrice.prototype.removeFeatureCost = function(value) {
 
 GeneralPrice.prototype.setCost = function() {
   this.cost = this.sliderTimeCost +
-    this.sliderHeroesCost + this.questCost +
+    this.sliderHeroesCost + this.siteCost +
     this.placeCost + this.featuresCost;
   if ($(".general-price").length) {
     $(".general-price .price").text(this.getCost());
@@ -88,31 +90,31 @@ SliderCalculate.prototype.setPrice = function(price) {
   this.price = price;
 };
 
-function Quest(dataInput) {
+function TypeSite(dataInput) {
   this.programs = dataInput;
   this.price = dataInput[0].price;
 }
 
-Quest.prototype.setPrice = function(price) {
+TypeSite.prototype.setPrice = function(price) {
   this.price = price;
 };
 
-Quest.prototype.getPrice = function(price) {
+TypeSite.prototype.getPrice = function(price) {
   return this.price;
 };
 
-function selectQuest(generalPrice, currentQuest) {
-  var currentProgram = $(".select-scenario").siblings(".options")
+function selectSite(generalPrice, currentTypeSite) {
+  var currentProgram = $(".select-site-type").siblings(".options")
     .find("li.selected").attr("data-raw-value");
-  var currentPrice = getQuestCost(currentProgram, currentQuest);
-  currentQuest.setPrice(currentPrice);
-  generalPrice.setQuestCost(currentQuest.getPrice());
+  var currentPrice = getSiteCost(currentProgram, currentTypeSite);
+  currentTypeSite.setPrice(currentPrice);
+  generalPrice.setSiteCost(currentTypeSite.getPrice());
 }
 
-function getQuestCost(program, quest) {
-  for (var i = 0; i < quest.programs.length; i++) {
-    if (quest.programs[i].program === program) {
-      return quest.programs[i].price;
+function getSiteCost(program, site) {
+  for (var i = 0; i < site.programs.length; i++) {
+    if (site.programs[i].program === program) {
+      return site.programs[i].price;
     }
   }
   return false;
@@ -256,21 +258,16 @@ $(function() {
     $( "#slider-heroes" ).val( $( "#slider-range-heroes" ).slider("value") );
   }
 
-  if ($(".select-scenario").length) {
+  if ($(".select-site-type").length) {
     // select scenario of event
-    var fancySelect = $(".select-scenario");
-    var currentQuest = new Quest([
-      {program: "harry-potter", price: 5000},
-      {program: "maincraft", price: 6000},
-      {program: "fort", price: 7000},
-      {program: "notices", price: 8000},
-      {program: "angry-birds", price: 9000},
-      {program: "cookery", price: 10000},
-      {program: "egypt", price: 7000}
+    var fancySelect = $(".select-site-type");
+    var currentTypeSite = new TypeSite([
+      {program: "landing", price: 10000},
+      {program: "full-site", price: 50000}
     ]);
-    generalPrice.setQuestCost(currentQuest.getPrice());
+    generalPrice.setSiteCost(currentTypeSite.getPrice());
     fancySelect.fancySelect({ forceiOS: true }).on('change.fs', function() {
-      selectQuest(generalPrice, currentQuest);
+      selectSite(generalPrice, currentTypeSite);
     });
     slimScrollInitialise(".options");
   }

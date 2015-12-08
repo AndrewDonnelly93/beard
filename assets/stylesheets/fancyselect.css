@@ -15,8 +15,8 @@ div.fancy-select div.trigger {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	position: relative;
-	width: 500px;
-	height: 45px;
+	width: 581px;
+	height: 53px;
 	transition: all 240ms ease-out;
 	-webkit-transition: all 240ms ease-out;
 	-moz-transition: all 240ms ease-out;
@@ -26,34 +26,34 @@ div.fancy-select div.trigger {
   	-moz-box-sizing: border-box;
   	box-sizing: border-box;
 	color: #333;
-	background: #F8F8F8;
+	background: #fff;
 	border: 1px solid #D1D1D1;
-	line-height: 47px;
+	line-height: 55px;
 	padding-left: 15px;
 }
 
 div.fancy-select.birth-date div.trigger {
-	line-height: 47px;
+	line-height: 55px;
 	cursor: pointer;
-	width: 500px;
-	height: 45px;
+	width: 581px;
+	height: 53px;
 	padding-left: 15px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	color: #333;
-	background: #F8F8F8;
+	background: #fff;
 	border: 1px solid #D1D1D1;
 }
 
 div.fancy-select .trigger:before {
-	background: url("../images/sprite/select-up.png") no-repeat 0 0;
+	background: url("../images/small-arrow.png") no-repeat 0 0;
 	content: "";
 	display: block;
 	position: absolute;
-	right: 15px;
-	width: 14px;
-	height: 12px;
+	right: 17px;
+	width: 22px;
+	height: 21px;
 	top: 15px;
 }
 
@@ -69,39 +69,27 @@ div.fancy-select.birth-date .trigger:after {
 }
 
 div.fancy-select div.trigger.open {
-	line-height: 47px;
+	line-height: 55px;
 	cursor: pointer;
-	width: 500px;
-	height: 45px;
+	width: 581px;
+	height: 53px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	color: #333;
-	background: #F8F8F8;
+	background: #fff;
 	border: 1px solid #D1D1D1;
 }
 
 div.fancy-select div.trigger.open:before {
-	background-image: url("../images/sprite/select-down.png");
-}
-
-div.fancy-select.birth-date div.trigger.open {
-	line-height: 38px;
-	cursor: pointer;
-	height: 37px;
-	width: 130px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	color: rgb(175, 175, 175);
-	background: #171A1D;
+	background: url("../images/small-arrow.png") no-repeat 0 0;
 }
 
 div.fancy-select ul.options {
 	list-style: none;
 	margin: 0;
 	position: absolute;
-	top: 45px;
+	top: 60px;
 	left: 0;
 	visibility: hidden;
 	opacity: 0;
@@ -111,10 +99,10 @@ div.fancy-select ul.options {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	overflow: auto;
-	width: 500px;
+	width: 581px;
 	color: #333;
 	border: 1px solid #D1D1D1;
-	background: #F8F8F8;
+	background: #fff;
 	transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
 	-webkit-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
 	-moz-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
@@ -128,7 +116,7 @@ div.fancy-select ul.options.open {
     z-index: 60;
 	overflow: hidden;
 	visibility: visible;
-	top: 46px;
+	top: 53px;
 	opacity: 1;
 
 	/* have to use a non-visibility transition to prevent this iOS issue (bug?): */
@@ -182,11 +170,11 @@ div.fancy-select ul.options li {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	position: relative;
-	width: 500px;
+	width: 581px;
 	color: #333;
-	background: #F8F8F8;
-	height: 45px;
-	line-height: 47px;
+	background: #fff;
+	height: 53px;
+	line-height: 55px;
 	cursor: pointer;
 	white-space: nowrap;
 	transition: all 150ms ease-out;

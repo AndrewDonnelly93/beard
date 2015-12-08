@@ -1,32 +1,14 @@
 $calculate-wrapper-w: 1185px;
-$calculate-left-block-w: 541px;
+$calculate-left-block-w: 585px;
 $calculate-right-block-w: 591px;
 $pic-place-w: 152px;
 $pic-place-h: 152px;
 
-.calculate-wrapper {
-  width: $calculate-wrapper-w;
-  margin: 0 auto;
-  position: relative;
-  @media (max-width: $screen-1280) {
-    left: 112px;
-  }
-  left: 53px;
-  @media (min-width: $max-body-w) {
-    left: 103px;
-  }
-}
-
 .calculate {
-  padding-top: 160px;
-  padding-bottom: 216px;
+  padding: 90px 0 90px;
   position: relative;
-  @media (max-width: $screen-1366) {
-    text-align: right;
-    .calculate-wrapper {
-      display: inline-block;
-      left: 0;
-    }
+  .middle-title {
+    margin-bottom: 66px;
   }
   .general-price {
     position: absolute;
@@ -55,19 +37,15 @@ $pic-place-h: 152px;
       family: "Circe-Bold", sans-serif;
     }
   }
-  .dark-section-title {
-    text-align: left;
-    margin-bottom: 95px;
-  }
   .left-block {
     float: left;
     width: $calculate-left-block-w;
     text-align: left;
     .scenario {
       .small-title {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
       }
-      margin-bottom: 114px;
+      margin-bottom: 80px;
     }
     .ui-slider-block {
       margin-bottom: 150px;
