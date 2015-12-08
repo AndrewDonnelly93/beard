@@ -1,0 +1,47 @@
+.mobile {
+  .holiday {
+    background: url("../images/mobile-bg.png") 0 0 no-repeat;
+    background-size: cover;
+    padding-top: 30px;
+    height: auto;
+    .holiday-wrapper {
+      text-align: left;
+      left: 0;
+      padding-left: 0;
+    }
+    .advantages {
+      text-align: left;
+      margin-top: 30px;
+      white-space: normal;
+      li {
+        width: 49%;
+        max-width: none;
+        &:nth-child(even) {
+
+        }
+        margin-right: 0;
+        margin-bottom: 20px;
+        vertical-align: top;
+        .letter {
+          font-size: 1.5em;
+          @media (min-width: $mobile-600) {
+            font-size: 2em;
+          }
+          @media (min-width: $mobile-736) {
+            font-size: 3em;
+          }
+          margin-bottom: 5px;
+        }
+      }
+    }
+    .btn {
+      float: none;
+      display: inline-block;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .middle-title {
+
+    }
+  }
+}

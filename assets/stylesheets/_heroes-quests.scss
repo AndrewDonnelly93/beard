@@ -1,0 +1,123 @@
+$hero-w: 193px;
+$hero-info-h: 135px;
+
+.heroes-quests {
+  position: relative;
+  width: 100%;
+  padding-top: 150px;
+  text-align: left;
+  .dark-section-title {
+    text-align: left;
+    margin-bottom: 43px;
+    @media (min-width: $max-body-w) {
+      position: relative;
+      padding-left: 20px;
+    }
+  }
+  .dark-section-description {
+    text-align: left;
+    max-width: $max-dark-section-description-w;
+    margin-bottom: 40px;
+    @media (min-width: $max-body-w) {
+      position: relative;
+      padding-left: 20px;
+    }
+  }
+  .heroes-bg {
+    height: $hero-info-h;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: $light-gray;
+  }
+  .heroes {
+    width: 700px;
+    margin: 0 auto;
+    left: -175px;
+    @media (max-width: $screen-1280) {
+      left: -214px;
+    }
+    @media (min-width: $max-body-w) {
+      width: $main-wrapper-w;
+      left: 0;
+    }
+    position: relative;
+    z-index: 5;
+    .hero {
+      text-align: center;
+      width: $hero-w;
+      display: inline-block;
+      margin-right: 193px;
+      .hero-pic {
+        min-height: 392px;
+        .image {
+          margin: 0 auto;
+          vertical-align: bottom;
+        }
+        padding-bottom: 47px;
+      }
+      &:nth-child(3) {
+        margin-right: 0;
+      }
+      &.harry {
+        .hero-pic {
+          .image {
+            width: 151px;
+            height: 372px;
+            background: url("../images/heroes/harry.png") no-repeat 0 0;
+          }
+        }
+      }
+      &.hermione {
+        .hero-pic {
+          .image {
+            width: 165px;
+            height: 392px;
+            background: url("../images/heroes/hermione.png") no-repeat 0 0;
+          }
+        }
+      }
+      .hero-info {
+        @include border-box;
+        height: $hero-info-h;
+        position: relative;
+        z-index: 5;
+        padding-top: 44px;
+        padding-bottom: 42px;
+        background: $light-gray;
+        .hero-name {
+          @include border-box;
+          line-height: 1.2;
+          color: $dark-black;
+          font-size: 24px;
+          text-transform: uppercase;
+          @extend %text-overflow;
+        }
+        .quest-name {
+          @include border-box;
+          line-height: 1.2;
+          color: $yellow;
+          font-size: 18px;
+          @extend %text-overflow;
+        }
+        .line {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 5px;
+          right: 5px;
+          height: 5px;
+          background: $yellow;
+        }
+      }
+      &:hover {
+        .hero-info {
+          .line {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

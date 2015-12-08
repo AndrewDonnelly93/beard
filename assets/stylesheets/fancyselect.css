@@ -1,0 +1,308 @@
+div.fancy-select {
+	position: relative;
+	font-family: "Circe-Light", sans-serif;
+	font-size: 18px;
+	color: #333;
+}
+
+div.fancy-select.disabled {
+	opacity: 0.5;
+}
+
+div.fancy-select div.trigger {
+	cursor: pointer;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: relative;
+	width: 500px;
+	height: 45px;
+	transition: all 240ms ease-out;
+	-webkit-transition: all 240ms ease-out;
+	-moz-transition: all 240ms ease-out;
+	-ms-transition: all 240ms ease-out;
+	-o-transition: all 240ms ease-out;
+	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+	color: #333;
+	background: #F8F8F8;
+	border: 1px solid #D1D1D1;
+	line-height: 47px;
+	padding-left: 15px;
+}
+
+div.fancy-select.birth-date div.trigger {
+	line-height: 47px;
+	cursor: pointer;
+	width: 500px;
+	height: 45px;
+	padding-left: 15px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #333;
+	background: #F8F8F8;
+	border: 1px solid #D1D1D1;
+}
+
+div.fancy-select .trigger:before {
+	background: url("../images/sprite/select-up.png") no-repeat 0 0;
+	content: "";
+	display: block;
+	position: absolute;
+	right: 15px;
+	width: 14px;
+	height: 12px;
+	top: 15px;
+}
+
+div.fancy-select.birth-date .trigger:after {
+	content: "";
+	display: block;
+	position: absolute;
+	border: 0;
+	top: 11px;
+	right: 5px;
+	width: 9px;
+	height: 15px;
+}
+
+div.fancy-select div.trigger.open {
+	line-height: 47px;
+	cursor: pointer;
+	width: 500px;
+	height: 45px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #333;
+	background: #F8F8F8;
+	border: 1px solid #D1D1D1;
+}
+
+div.fancy-select div.trigger.open:before {
+	background-image: url("../images/sprite/select-down.png");
+}
+
+div.fancy-select.birth-date div.trigger.open {
+	line-height: 38px;
+	cursor: pointer;
+	height: 37px;
+	width: 130px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: rgb(175, 175, 175);
+	background: #171A1D;
+}
+
+div.fancy-select ul.options {
+	list-style: none;
+	margin: 0;
+	position: absolute;
+	top: 45px;
+	left: 0;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 50;
+	max-height: 200px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: auto;
+	width: 500px;
+	color: #333;
+	border: 1px solid #D1D1D1;
+	background: #F8F8F8;
+	transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+	-webkit-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+	-moz-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+	-ms-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+	-o-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+}
+
+
+
+div.fancy-select ul.options.open {
+    z-index: 60;
+	overflow: hidden;
+	visibility: visible;
+	top: 46px;
+	opacity: 1;
+
+	/* have to use a non-visibility transition to prevent this iOS issue (bug?): */
+	/*http://stackoverflow.com/questions/10736478/css-animation-visibility-visible-works-on-chrome-and-safari-but-not-on-ios*/
+	transition: opacity 300ms ease-out, top 300ms ease-out;
+	-webkit-transition: opacity 300ms ease-out, top 300ms ease-out;
+	-moz-transition: opacity 300ms ease-out, top 300ms ease-out;
+	-ms-transition: opacity 300ms ease-out, top 300ms ease-out;
+	-o-transition: opacity 300ms ease-out, top 300ms ease-out;
+}
+
+div.fancy-select.birth-date ul.options.open {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+div.fancy-select ul.options.overflowing {
+	overflow: hidden;
+	top: 46px;
+
+	transition: opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+	-webkit-transition: opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+	-moz-transition: opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+	-ms-transition: opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+	-o-transition: opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+}
+
+div.fancy-select.birth-date ul.options.overflowing {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+div.fancy-select ul.options.overflowing.open {
+	top: 37px;
+
+	transition: opacity 300ms ease-out, bottom 300ms ease-out;
+	-webkit-transition: opacity 300ms ease-out, bottom 300ms ease-out;
+	-moz-transition: opacity 300ms ease-out, bottom 300ms ease-out;
+	-ms-transition: opacity 300ms ease-out, bottom 300ms ease-out;
+	-o-transition: opacity 300ms ease-out, bottom 300ms ease-out;
+}
+
+div.fancy-select ul.options li {
+	padding-left: 15px;
+    z-index: 50;
+	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+	cursor: pointer;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: relative;
+	width: 500px;
+	color: #333;
+	background: #F8F8F8;
+	height: 45px;
+	line-height: 47px;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: all 150ms ease-out;
+	-webkit-transition: all 150ms ease-out;
+	-moz-transition: all 150ms ease-out;
+	-ms-transition: all 150ms ease-out;
+	-o-transition: all 150ms ease-out;
+}
+
+div.fancy-select.birth-date ul.options li {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	cursor: pointer;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: relative;
+	color:rgb(0,244,253);
+	height: 30px;
+	line-height: 31px;
+	width: 130px;
+}
+
+div.fancy-select.birth-date ul.options li span {
+	position: relative;
+	z-index: 3;
+}
+
+
+div.fancy-select ul.options li.selected {
+    z-index: 50;
+	position: relative;
+}
+
+div.fancy-select ul.options li.hover {
+    z-index: 50;
+	position: relative;
+}
+
+/* Set width */
+
+div.fancy-select.birth-date-day {
+	position: absolute;
+	top: 0;
+	right: 270px;
+}
+
+div.fancy-select.birth-date-day div.trigger {
+	width: 90px !important;
+	color: #fff;
+	font-weight: 600;
+}
+
+div.fancy-select.birth-date-day div.trigger.open {
+	width: 90px !important;
+	color: #fff;
+	font-weight: 600;
+}
+
+div.fancy-select.birth-date-day ul.options {
+	width: 90px;
+}
+
+div.fancy-select.birth-date-day ul.options li {
+	width: 90px;
+}
+
+div.fancy-select.birth-date-month div.trigger {
+	width: 148px !important;
+}
+
+div.fancy-select.birth-date-month div.trigger.open {
+	width: 148px !important;
+}
+
+div.fancy-select.birth-date-month ul.options {
+	width: 148px;
+}
+
+div.fancy-select.birth-date-month ul.options li {
+	width: 148px;
+}
+
+div.fancy-select.birth-date-year div.trigger {
+	width: 122px !important;
+}
+
+div.fancy-select.birth-date-year div.trigger:before {
+	display: none;
+}
+
+div.fancy-select.birth-date-year div.trigger.open {
+	width: 122px !important;
+}
+
+div.fancy-select.birth-date-year ul.options {
+	width: 122px;
+}
+
+div.fancy-select.birth-date-year ul.options li {
+	width: 122px;
+}
+
+@media (max-width: 500px) {
+	div.fancy-select div.trigger {
+		width: 100%;
+	}
+	div.fancy-select div.trigger.open {
+		width: 100%;
+	}
+	div.fancy-select ul.options {
+		width: 100%;
+	}
+	div.fancy-select ul.options li {
+		width: 100%;
+	}
+}

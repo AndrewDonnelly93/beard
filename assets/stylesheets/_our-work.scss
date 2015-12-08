@@ -1,0 +1,51 @@
+$horizontal-img-w: 443px;
+$horizontal-img-h: 233px;
+$works-list-margin: 16px;
+
+.our-work {
+  text-align: center;
+  padding: 72px 0 120px;
+  background: $green;
+  .layout-center-wrapper {
+    text-align: left;
+    .middle-title {
+      margin-bottom: 16px;
+    }
+    .watch-project {
+      margin-bottom: 20px;
+    }
+  }
+  .works-list {
+    text-align: left;
+    display: inline-block;
+    width: $horizontal-img-w * 2 + $works-list-margin;
+    @media (min-width: $horizontal-img-w * 3 + $works-list-margin * 2) {
+      width: $horizontal-img-w * 3 + $works-list-margin * 2;
+    }
+    li {
+      display: inline-block;
+      @include size($horizontal-img-w, $horizontal-img-h);
+      .img-link {
+        display: block;
+        @include size($horizontal-img-w, $horizontal-img-h);
+      }
+      .project-img {
+        display: block;
+        @include size($horizontal-img-w, $horizontal-img-h);
+      }
+      margin-right: $works-list-margin;
+      margin-bottom: $works-list-margin + 2;
+      &:nth-child(even) {
+        margin-right: 0;
+      }
+      @media (min-width: $horizontal-img-w * 3 + $works-list-margin * 2) {
+        &:nth-child(even) {
+          margin-right: $works-list-margin;
+        }
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

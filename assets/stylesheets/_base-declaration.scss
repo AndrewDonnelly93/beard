@@ -1,0 +1,127 @@
+%text-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+%adaptive-image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+%full-size-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  border: 0;
+  outline: 0;
+  outline-width: 0;
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  color: #444 !important;
+  -webkit-text-fill-color: #444 !important;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline-width: 0;
+  background: 0;
+}
+
+input:focus {
+  outline-width: 0;
+}
+
+input,
+textarea {
+  border: 0;
+  outline: 0;
+  outline-width: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@mixin placeholder($color) {
+  :-webkit-input-placeholder {
+    color: $color;
+  }
+  :-moz-placeholder {
+    color: $color;
+  }
+  :-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin size($width,$height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin transform($transform-param) {
+  transform: $transform-param;
+  -moz-transform: $transform-param;
+  -ms-transform: $transform-param;
+  -o-transform: $transform-param;
+  -webkit-transform: $transform-param;
+}
+
+input[type="date"] {
+  -webkit-align-items: center;
+  display: -webkit-inline-flex;
+  font-family: monospace;
+  overflow: hidden;
+  padding: 0;
+  -webkit-padding-start: 1px;
+}
+
+::-webkit-datetime-edit { padding: 0 1em; }
+::-webkit-datetime-edit-fields-wrapper { background: #fff }
+::-webkit-datetime-edit-text { color: #333; padding: 0 0.3em; }
+::-webkit-datetime-edit-month-field { color: #333; }
+::-webkit-datetime-edit-day-field { color: #333; }
+::-webkit-datetime-edit-year-field { color: #333; }
+::-webkit-inner-spin-button {  display: none;
+}
+::-webkit-calendar-picker-indicator { //background: #fff;
+}
+
+input::-webkit-datetime-edit {
+  -webkit-flex: 1;
+  -webkit-user-modify: read-only !important;
+  display: inline-block;
+  min-width: 0;
+  overflow: hidden;
+}
+
+input::-webkit-datetime-edit-fields-wrapper {
+  -webkit-user-modify: read-only !important;
+  display: inline-block;
+  padding: 1px 0;
+  white-space: pre;
+}

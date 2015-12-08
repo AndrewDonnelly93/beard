@@ -1,0 +1,217 @@
+$ilya-icon-w: 38px;
+$ilya-icon-h: 34px;
+$team-icon-w: 48px;
+$team-icon-h: 24px;
+$masha-icon-w: 33px;
+$masha-icon-h: 38px;
+$icon-container-w: 80px;
+
+#ilya {
+  .person-image {
+    @include size(316px,700px);
+    background: url("../images/ilya.png") 0 0 no-repeat;
+    top: 115px;
+    right: 107px;
+  }
+}
+#masha {
+  .person-image {
+    @include size(316px,705px);
+    background: url("../images/masha.png") 0 0 no-repeat;
+    top: 50px;
+    right: 112px;
+  }
+}
+
+.team-table {
+  @media (max-width: $screen-1366) {
+    text-align: right;
+    .table-wrapper {
+      position: relative;
+      width: $layout-w;
+      display: inline-block;
+      @media (max-width: $screen-1280) {
+       // left: 95px;
+      }
+    }
+  }
+  .table-menu {
+    text-align: left;
+    li {
+      list-style: none;
+      display: block;
+      height: $table-menu-h;
+      a {
+        height: $table-menu-h;
+        display: table-row;
+      }
+      .icon-container {
+        width: $team-icon-w;
+        height: $table-menu-h;
+        vertical-align: middle;
+        display: table-cell;
+        padding-left: 80px;
+        padding-right: 15px;
+        position: relative;
+        text-align: center;
+        .icon {
+          margin: 0 auto;
+        }
+      }
+      &.ilya {
+        .icon-container {
+          .icon {
+            @include size($ilya-icon-w,$ilya-icon-h);
+            background: url("../images/sprite/sprite.png") -46px -135px no-repeat;
+          }
+        }
+      }
+      &.masha {
+        .icon-container {
+          .icon {
+            @include size($masha-icon-w,$masha-icon-h);
+            background: url("../images/sprite/sprite.png") -222px 0px no-repeat;
+          }
+        }
+      }
+      &.team {
+        .icon-container {
+          .icon {
+            @include size($team-icon-w,$team-icon-h);
+            background: url("../images/sprite/sprite.png") -89px -135px no-repeat;
+          }
+        }
+      }
+    }
+  }
+  .small-menu {
+    display: inline-block;
+    li {
+      display: inline-block;
+      margin-right: 10px;
+      @include size(10px,10px);
+      &:last-child {
+        margin-right: 0;
+      }
+      a {
+        @include size(10px,10px);
+        @include border-radius(50%);
+        display: block;
+        background: #B28C31;
+      }
+      &.active {
+        a {
+          background: #000;
+        }
+      }
+    }
+   
+  }
+  .team-mates {
+    text-align: left;
+    @include border-box;
+    min-height: 950px;
+    list-style: none;
+    padding-top: 15px;
+    //padding-bottom: 84px;
+    li {
+      @include border-box;
+      text-align: left;
+      .section-title {
+        color: #fff;
+        margin-bottom: 15px;
+        max-width: 672px;
+      }
+      .section-description {
+        color: #fff;
+        margin-bottom: 15px;
+        max-width: 672px;
+      }
+      .text-block {
+        max-width: 618px;
+        margin-bottom: 55px;
+      }
+      .person-image {
+        position: absolute;
+      }
+    }
+    .advantages {
+      li {
+        color: $black;
+        font: {
+          family: "Circe-Light", sans-serif;
+          size: 24px;
+        }
+        display: table;
+        margin-bottom: 35px;
+        &.volunteer {
+          .icon {
+            @include size(57px,58px);
+            background:  url(../images/sprite/sprite.png) -160px 0px no-repeat;
+          }
+        }
+        &.laur {
+          .icon {
+            @include size(77px,57px);
+            background:  url(../images/sprite/sprite.png) -78px 0px no-repeat;
+          }
+        }
+        &.teacher {
+          .icon {
+            @include size(73px,65px);
+            background:  url(../images/sprite/sprite.png) 0 0 no-repeat;
+          }
+        }
+      }
+      .icon-container {
+        width: $icon-container-w;
+        padding-right: 30px;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        font: {
+          family: "Circe-Bold", sans-serif;
+          size: 36px;
+        }
+        color: $dark-black;
+        line-height: .8;
+        margin-bottom: 15px;
+        .icon {
+          margin: 0 auto;
+        }
+      }
+      .description {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+        max-width: 510px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  #ilya {
+    .person-image {
+      right: 389px;
+      top: 216px;
+    }
+  }
+  #masha {
+    .person-image {
+      top: 148px;
+      right: 455px;
+    }
+  }
+  .team-table {
+    .team-mates {
+      li {
+        display: none;
+        padding-left: 47px;
+        &.active {
+          display: block;
+        }
+      }
+    }
+  }
+}

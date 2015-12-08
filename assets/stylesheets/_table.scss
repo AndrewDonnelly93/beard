@@ -1,0 +1,62 @@
+$table-menu-h: 60px;
+.table  {
+  width: 100%;
+  .side-block {
+    vertical-align: top;
+    display: none;
+    width: $side-block-w;
+    background: $light-gray;
+    padding-top: 235px;
+  }
+  .table-menu {
+    a {
+      color: $black;
+      font: {
+        family: "Circe-Light", sans-serif;
+        size: 24px;
+      }
+      @extend %text-overflow;
+    }
+  }
+  .main-cell {
+    position: relative;
+    vertical-align: top;
+    background: $yellow;
+    @include border-box;
+    text-align: center;
+    @media (max-width: $screen-1366) {
+      text-align: right;
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .table  {
+    .side-block {
+      display: table-cell;
+      .table-menu li {
+        background: $light-gray;
+        height: $table-menu-h;
+        &.active {
+          background: $yellow;
+
+        }
+      }
+      .table-menu a {
+        height: $table-menu-h;
+        line-height: $table-menu-h + 2;
+        @include border-box;
+        text: {
+          decoration: none;
+          align: left;
+        }
+        color: $black;
+      }
+    }
+    .main-cell {
+      .table-wrapper {
+        @include border-box;
+      }
+    }
+  }
+}

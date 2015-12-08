@@ -1,0 +1,496 @@
+$mobile-menu-icon-w: 52px;
+$mobile-menu-icon-h: 41px;
+$mobile-logo-w: 67px;
+$mobile-logo-h: 86px;
+$portrait-layout-w: 81.3%;
+$small-portrait-layout-w: 640px;
+$mobile: 320px;
+$mobile-375: 375px;
+$mobile-414: 414px;
+$mobile-568: 568px;
+$mobile-600: 600px;
+$mobile-640: 640px;
+$mobile-736: 736px;
+$mobile-768: 768px;
+$mobile-1024: 1024px;
+$mobile-1280: 1280px;
+$light-orange: #f8f8f8;
+$mobile-arrow-w: 29px;
+$mobile-arrow-h: 25px;
+
+%standard-header {
+  .menu-mobile {
+    padding-top: 0 !important;
+  }
+  header {
+    background: $yellow;
+    height: auto !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 30px 0 !important;
+    @media (min-width: $mobile-600) {
+      padding: 70px 0 !important;
+    }
+  }
+}
+
+%standard-mobile-layout-center-wrapper {
+  left: 0 !important;
+  display: block;
+  margin: 0 auto;
+  @media (min-width: $mobile) {
+    width: 88%;
+    @media (orientation: portrait) {
+      width: 90%;
+    }
+  }
+  @media (min-width: $mobile-414) and (orientation: portrait) {
+    width: 90%;
+  }
+  @media (min-width: $mobile-568)  and (orientation: landscape){
+    width: 70%;
+  }
+  @media (min-width: $mobile-1024) and (orientation: landscape) {
+    width: 85%;
+  }
+  @media (min-width: $mobile-1280) and (orientation: landscape) {
+    width: 70%;
+  }
+}
+
+%standard-section-title {
+  @media (min-width: $mobile) {
+    font-size: 1.25em;
+  }
+  @media (min-width: $mobile-736) and (orientation: landscape) {
+    font-size: 1.75em;
+  }
+  @media (min-width: $mobile-414) and (orientation: portrait) {
+    font-size: 1.75em;
+  }
+  @media (min-width: $mobile-768) and (orientation: portrait) {
+    font-size: 3em;
+  }
+  @media (min-width: $mobile-1024) and (orientation: landscape) {
+    font-size: 3em;
+  }
+}
+
+%standard-small-title {
+  @media (min-width: $mobile) {
+    font-size: 1.25em;
+  }
+  @media (min-width: $mobile-414) and (orientation: portrait) {
+    font-size: 1.5em;
+  }
+  @media (min-width: $mobile-768) and (orientation: portrait) {
+    font-size: 1.75em;
+  }
+}
+
+%standard-text-block {
+  @media (min-width: $mobile) {
+    font-size: 0.875em;
+  }
+  @media (min-width: $mobile-414) and (orientation: portrait) {
+    font-size: 1.25em;
+  }
+  @media (min-width: $mobile-768) and (orientation: portrait) {
+    font-size: 1.5em;
+  }
+}
+
+%standard-section-description {
+  // font-size: 30px;
+  font-size: 2.25em;
+  @media (min-width: $mobile) {
+    font-size: 0.875em;
+    margin-top: 7px;
+  }
+  @media (min-width: $mobile-736) and (orientation: landscape) {
+    font-size: 1.25em;
+  }
+  @media (min-width: $mobile-414) and (orientation: portrait) {
+    font-size: 1.25em;
+  }
+  @media (min-width: $mobile-768) and (orientation: portrait) {
+    font-size: 2.25em;
+  }
+  @media (min-width: $mobile-1024) and (orientation: landscape) {
+    font-size: 2.25em;
+  }
+}
+
+.mobile {
+  min-width: inherit;
+  width: 100%;
+  max-width: 100%;
+  font-size: 16px;
+  .layout-center-wrapper,
+  .main-wrapper,
+  .holiday-wrapper,
+  .table-wrapper,
+  .calculate-wrapper,
+  .contacts-info-wrapper,
+  .content-wrapper {
+   @extend %standard-mobile-layout-center-wrapper;
+  }
+  .section-title,
+  .dark-section-title,
+  .middle-title 
+  {
+   @extend %standard-section-title;
+  }
+  .middle-title {
+    line-height: 1.1;
+  }
+  .small-title,
+  .small-section-title {
+   @extend %standard-small-title;
+  }
+  .text-block {
+    @extend %standard-text-block;
+  }
+  .dark-section-description {
+    //font-size: 30px;
+    @media (min-width: $mobile) {
+      font-size: 0.875em;
+      padding-bottom: 38px !important;
+    }
+    @media (min-width: $mobile-736) and (orientation: landscape) {
+      font-size: 1.5em;
+      padding-bottom: 58px;
+    }
+    @media (min-width: $mobile-414) and (orientation: portrait) {
+      font-size: 1.5em;
+      padding-bottom: 58px;
+    }
+  }
+  .section-description {
+    @extend %standard-section-description;
+  }
+  .main {
+    .menu {
+      background: none;
+      height: auto;
+      padding-top: 0;
+    }
+    height: 100%;
+    height: 100vh;
+    min-height: 320px;
+    position: relative;
+    background: url("../images/mobile-bg.png") 0 0 no-repeat;
+    background-size: cover;
+    /*@media all and (orientation: landscape) {
+      background: url("../images/mobile-bg.png") center center no-repeat;
+      background-size: cover;
+    }
+    .section-description {
+      margin-top: 10px;
+      font-size: 30px;
+    }*/
+    header {
+      padding-top: 3px;
+      @media (min-width: $mobile-375) and (orientation: portrait) {
+          padding-top: 20px;
+      }
+      @media (min-width: $mobile-736) and (orientation: landscape) {
+        padding-top: 20px;
+      }
+      @media (min-width: $mobile-768) and (orientation: portrait) {
+        padding-top: 30px;
+      }
+      @media (min-width: $mobile-1024) and (orientation: landscape) {
+        padding-top: 30px;
+      }
+    }
+    .main-menu-container {
+      .main-menu {
+        @media (min-width: $mobile-736) and (orientation: landscape) {
+          margin-top: 13px;
+        }
+        li {
+          padding-right: 0;
+          a {
+            @media (min-width: $mobile) {
+              font-size: 0.9375em;
+              padding-left: 20px;
+            }
+            font-size: 48px;
+            &.menu {
+              /*padding-left: 57px;
+              position: relative;
+              &:before {
+                top: 23px;
+                left: 15px;
+                @include size(.5*$mobile-menu-icon-w, .5*$mobile-menu-icon-h);
+                -webkit-background-size: .5*$mobile-menu-icon-w .5*$mobile-menu-icon-h;
+                background-size: .5*$mobile-menu-icon-w .5*$mobile-menu-icon-h;
+              }*/
+              @media (min-width: $mobile) {
+                &:before {
+                  background: url("../images/sprite/mobile/menu_52x41.png") 0 0 no-repeat;
+                  top: 6px;
+                  @include size(.5*$menu-icon-w, .5*$menu-icon-h);
+                  -webkit-background-size: .5*$menu-icon-w .5*$menu-icon-h;
+                  background-size: .5*$menu-icon-w .5*$menu-icon-h;
+                }
+              }
+              @media (min-width: $mobile-414) and (orientation: portrait) {
+                  padding-left: 52px;
+                  font-size: 1.375em;
+                  &:before {
+                    top: 4px;
+                    left: 15px;
+                    @include size(.5*$mobile-menu-icon-w, .5*$mobile-menu-icon-h);
+                    -webkit-background-size: .5*$mobile-menu-icon-w .5*$mobile-menu-icon-h;
+                    background-size: .5*$mobile-menu-icon-w .5*$mobile-menu-icon-h;
+                  }
+              }
+              @media (min-width:  $mobile-736) and (orientation: landscape) {
+                padding-left: 52px;
+                font-size: 1.375em;
+                &:before {
+                  top: 4px;
+                  left: 15px;
+                  @include size(.5*$mobile-menu-icon-w, .5*$mobile-menu-icon-h);
+                  -webkit-background-size: .5*$mobile-menu-icon-w .5*$mobile-menu-icon-h;
+                  background-size: .5*$mobile-menu-icon-w .5*$mobile-menu-icon-h;
+                }
+              }
+              @media (min-width: $mobile-768) and (orientation: portrait) {
+                padding-left: 82px;
+                font-size: 2.8125em;
+                &:before {
+                  top: 10px;
+                  left: 15px;
+                  @include size($mobile-menu-icon-w, $mobile-menu-icon-h);
+                  -webkit-background-size: $mobile-menu-icon-w $mobile-menu-icon-h;
+                  background-size: $mobile-menu-icon-w $mobile-menu-icon-h;
+                }
+              }
+              @media (min-width: $mobile-1024) and (orientation: landscape) {
+                padding-left: 82px;
+                font-size: 2.8125em;
+                &:before {
+                  top: 10px;
+                  left: 15px;
+                  @include size($mobile-menu-icon-w, $mobile-menu-icon-h);
+                  -webkit-background-size: $mobile-menu-icon-w $mobile-menu-icon-h;
+                  background-size: $mobile-menu-icon-w $mobile-menu-icon-h;
+                }
+              }
+
+            }
+          }
+        }
+      }
+    }
+  }
+  .logo-block {
+    float: right;
+    margin-bottom: 0;
+    .logo {
+      position: relative;
+      top: 18px;
+      @include size($mobile-logo-w,$mobile-logo-h);
+      padding-right: 15px;
+      //top: -3px;
+      @include size($mobile-logo-w,$mobile-logo-h);
+      -webkit-background-size: $mobile-logo-w $mobile-logo-h;
+      background-size: $mobile-logo-w $mobile-logo-h;
+      background: url("../images/logo_67x86.png") 0 0 no-repeat;
+      @media (min-width: $mobile) {
+        padding-right: 8px;
+        @include size(.25*$mobile-logo-w, .25*$mobile-logo-h);
+        -webkit-background-size: .25*$mobile-logo-w .25*$mobile-logo-h;
+        background-size: .25*$mobile-logo-w .25*$mobile-logo-h;
+      }
+      @media (min-width: $mobile-736) and (orientation: landscape) {
+        padding-right: 10px;
+        top: 8px;
+        @include size(.5*$mobile-logo-w,.5*$mobile-logo-h);
+        -webkit-background-size: .5*$mobile-logo-w .5*$mobile-logo-h;
+        background-size: .5*$mobile-logo-w .5*$mobile-logo-h;
+      }
+      @media (min-width: $mobile-414) and (orientation: portrait) {
+          padding-right: 10px;
+          top: 8px;
+          @include size(.5*$mobile-logo-w,.5*$mobile-logo-h);
+          -webkit-background-size: .5*$mobile-logo-w .5*$mobile-logo-h;
+          background-size: .5*$mobile-logo-w .5*$mobile-logo-h;
+      }
+      @media (min-width: $mobile-768) and (orientation: portrait) {
+        padding-right: 15px;
+        top: -3px;
+        @include size($mobile-logo-w,$mobile-logo-h);
+        -webkit-background-size: $mobile-logo-w $mobile-logo-h;
+        background-size: $mobile-logo-w $mobile-logo-h;
+      }
+      @media (min-width: $mobile-1024) and (orientation: landscape) {
+        padding-right: 15px;
+        top: -3px;
+        @include size($mobile-logo-w,$mobile-logo-h);
+        -webkit-background-size: $mobile-logo-w $mobile-logo-h;
+        background-size: $mobile-logo-w $mobile-logo-h;
+      }
+    }
+    .company-info {
+      .company-name {
+        //padding-top: 19px;
+        //font-size: 35px;
+        @media (min-width: $mobile) {
+          font-size: 0.875em;
+          padding-top: 15px;
+        }
+        @media (min-width: $mobile-736) and (orientation: landscape) {
+          padding-top: 10px;
+          font-size: 1.5em;
+        }
+        @media (min-width: $mobile-414) and (orientation: portrait) {
+          font-size: 1em;
+        }
+        @media (min-width: $mobile-768) and (orientation: portrait) {
+          font-size: 2.125em;
+          padding-top: 19px;
+        }
+        @media (min-width: $mobile-1024) and (orientation: landscape) {
+          font-size: 2.125em;
+          padding-top: 19px;
+        }
+      }
+      .company-description {
+       // font-size: 16px;
+        @media (min-width: $mobile) {
+          font-size: 0.75em;
+        }
+        @media (min-width: $mobile-736) and (orientation: landscape) {
+          font-size: 0.9375em;
+        }
+        @media (min-width: $mobile-414) and  (orientation: portrait) {
+            font-size: 0.9375em;
+        }
+      }
+    }
+  }
+  .contacts {
+    position: absolute;
+    left: 0;
+    font-size: 30px;
+    bottom: 90px;
+    text-align: left;
+   // min-width: 462px;
+    line-height: 1.5;
+    @media (min-width: $mobile) {
+      bottom: 21px;
+      font-size: 0.875em;
+    }
+    @media (min-width: $mobile-375) and (orientation: portrait) {
+        bottom: 41px;
+    }
+    @media (min-width: $mobile-736) and (orientation: landscape) {
+      bottom: 21px;
+      font-size: 1.25em;
+    }
+    @media (min-width: $mobile-414) and (orientation: portrait) {
+        bottom: 31px;
+        font-size: 1.25em;
+    }
+    @media (min-width: $mobile-768) and (orientation: portrait) {
+      font-size: 2em;
+      bottom: 61px;
+    }
+    @media (min-width: $mobile-1024) and (orientation: landscape) {
+      font-size: 2em;
+      bottom: 81px;
+    }
+    width: 100%;
+    max-width: 100%;
+    span {
+      //font-size: 36px;
+      //top: 3px;
+      top: 1px;
+      @media (min-width: $mobile) {
+        font-size: 1em;
+      }
+      @media (min-width: $mobile-736) and (orientation: landscape) {
+        font-size: 1.25em;
+      }
+      @media (min-width: $mobile-414) and (orientation: portrait) {
+          font-size: 1.25em;
+      }
+      @media (min-width: $mobile-768) and (orientation: portrait) {
+        font-size: 1.5em;
+        top: 6px;
+      }
+      @media (min-width: $mobile-1024) and (orientation: landscape) {
+        font-size: 1.5em;
+        top: 6px;
+      }
+    }
+  }
+
+
+  .organize-block {
+    max-width: 100%;
+    @extend %full-size-absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .programs-block {
+    width: 100%;
+    .small-section-title {
+      width: 80%;
+      padding-bottom: 1.5em;
+    }
+    .programs-list {
+      min-height: 428px;
+      display: block;
+      .program-name {
+        padding: 0 10px 0 0;
+        &.active {
+          background: $yellow;
+        }
+      }
+    }
+    .programs-names {
+      background: $yellow;
+      width: 100%;
+      padding: 10px 0 0 0;
+      .more-programs-container {
+        background: $light-orange;
+      }
+      .more-programs {
+        display: block;
+        padding: 28px 0 55px 0;
+        line-height: 1;
+        &:before {
+          top: 32px;
+        }
+      }
+    }
+    .programs-descriptions {
+      padding-left: 0;
+      .dark-section-title {
+        padding-top: 1.5em;
+      }
+      .dark-section-description {
+        width: 70%;
+        padding-bottom: 1.5em;
+      }
+    }
+  }
+}
+
+

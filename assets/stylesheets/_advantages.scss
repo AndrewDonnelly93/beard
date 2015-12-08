@@ -1,0 +1,78 @@
+$advantages-list-h: 165px;
+
+.advantages {
+  padding: 75px 0 210px;
+  .middle-title {
+    margin-bottom: 170px;
+  }
+  .advantages-list {
+    position: relative;
+    li {
+      @include size($basic-table-cell-w, $advantages-list-h);
+      display: block;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: "";
+        display: block;
+        top: 0;
+        left: 0;
+      }
+      .small-section-title {
+        left: 49px;
+        right: 0;
+        bottom: 5px;
+        position: absolute;
+        z-index: 2;
+      }
+      &:nth-child(1) {
+        float: left;
+        &:before {
+          background: url("../images/one.png") no-repeat 0 0;
+          @include size(71px, 166px);
+        }
+        margin-bottom: 256px;
+      }
+      &:nth-child(4) {
+        float: left;
+        &:before {
+          left: -3px;
+          background: url("../images/four.png") no-repeat 0 0;
+          @include size(125px, 159px);
+        }
+      }
+      &:nth-child(2) {
+        float: right;
+        &:before {
+          background: url("../images/two.png") no-repeat 0 0;
+          left: 10px;
+          @include size(105px, 166px);
+        }
+        margin-bottom: 256px;
+      }
+      &:nth-child(5) {
+        float: right;
+        &:before {
+          background: url("../images/five.png") no-repeat 0 0;
+          @include size(104px, 164px);
+        }
+      }
+      &:nth-child(3) {
+        position: absolute;
+        top: 195px;
+        left: 50%;
+        margin-left: -1/2 * $basic-table-cell-w;
+        .small-section-title {
+          bottom: 62px;
+        }
+        height: 254px;
+        &:before {
+          background: url("../images/three.png") no-repeat 0 0;
+          left: 18px;
+          top: 30px;
+          @include size(106px, 167px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.chronology {
+  padding-top: 90px;
+  .middle-title {
+    margin-bottom: 66px;
+  }
+  .development-table {
+    text-align: left;
+    width: 100%;
+    vertical-align: top;
+    .stage-name {
+      td {
+        padding-bottom: 30px;
+      }
+    }
+    .stage-description {
+      td {
+        padding-bottom: 166px;
+      }
+    }
+    td {
+      width: 50%;
+    }
+    .text-block {
+      width: 90%;
+    }
+    .chronology-img {
+      display: block;
+      margin: 0 auto;
+      &.projection {
+        @include size(247px, 246px);
+      }
+      &.design {
+        @include size(247px, 247px);
+      }
+      &.coding {
+        @include size(248px, 249px);
+      }
+      &.development {
+        @include size(248px, 247px);
+      }
+      &.testing {
+        @include size(248px, 248px);
+      }
+    }
+  }
+}

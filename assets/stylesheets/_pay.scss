@@ -1,0 +1,227 @@
+$pay-form-wrapper-w: 988px;
+$pay-form-input-w: 467px;
+$payment-list-item-w: 200px;
+$payment-pic-h: 90px;
+$pay-submit-btn-w: 292px;
+$pay-submit-btn-h: 45px;
+$security-payment-h: 24px;
+$security-payment-visa-w: 54px;
+$security-payment-mastercard-w: 67px;
+
+.pay {
+  text-align: right;
+  .layout-center-wrapper {
+    @media (max-width: $screen-1280) {
+      left: 0;
+    }
+    @media (min-width: $max-body-w) {
+      right: -100px;
+    }
+  }
+  header {
+      margin-top: 21px;
+      height: 100px;
+  }
+  .contacts {
+    position: relative;
+    top: 9px;
+  }
+  .pay-section {
+    .section-title {
+      text-align: left;
+      margin-bottom: 22px;
+    }
+    .section-description {
+      text-align: left;
+      margin-bottom: 20px;
+      max-width: 723px;
+    }
+    .text-block {
+      text-align: left;
+      margin-bottom: 21px;
+    }
+  }
+  padding-bottom: 85px;
+}
+
+.form-container {
+  text-align: left;
+}
+
+.pay-form {
+  display: inline-block;
+  .form-wrapper {
+    .text-block {
+      color: $gray;
+      margin-bottom: 0;
+      font-size: 16px;
+      &.for-payment {
+        font-size: 18px;
+      }
+    }
+    width: $pay-form-wrapper-w;
+    margin: 0 auto;
+    .input-wrapper {
+      width: 100%;
+      position: relative;
+      @include border-box;
+      padding-top: 34px;
+      margin-bottom: 18px;
+      text-align: left;
+      .pay-label {
+        @extend %text-overflow;
+        position: absolute;
+        color: $gray;
+        top: 0;
+        left: 0;
+        font-size: 18px;
+      }
+    }
+    .pay-input {
+      width: $pay-form-input-w;
+      border: 1px solid #D1D1D1;
+      @include border-box;
+      margin-bottom: 0;
+      height: 47px;
+      line-height: 48px;
+    }
+    .left-block {
+      width: $pay-form-input-w;
+      float: left;
+      input {
+        width: 100%;
+        @include border-box;
+
+      }
+    }
+    .right-block {
+      float: right;
+      text-align: left;
+      .pay-input {
+        display: inline-block;
+      }
+    }
+  }
+  input[type=submit] {
+    border: 0;
+    font-size: 16px;
+    @include size($pay-submit-btn-w,$pay-submit-btn-h);
+    line-height: $pay-submit-btn-h + 2;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+}
+
+.payment-security {
+  text-align: left;
+  .security-payment-list {
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 15px;
+    li {
+      vertical-align: top;
+      display: inline-block;
+      margin-right: 15px;
+      height: $security-payment-h;
+      &.visa {
+        width: $security-payment-visa-w;
+        background: url("../images/payment/visa-s.png") 0 0 no-repeat;
+      }
+      &.mastercard {
+        width: $security-payment-mastercard-w;
+        background: url("../images/payment/mastercard-s.png") 0 0 no-repeat;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .security-description {
+    position: relative;
+    top: -3px;
+    color: $middle-gray;
+    display: inline-block;
+    vertical-align: top;
+    max-width: $payment-list-item-w;
+    font: {
+      family: "Circe-Light", sans-serif;
+      size: 12px;
+    }
+  }
+}
+
+.payment-list {
+  text-align: left;
+  list-style: none;
+  display: table-row;
+  table-layout: fixed;
+  li {
+    input[type="radio"] + label span {
+      top: 30px;
+    }
+    display: table-cell;
+    max-width: $payment-list-item-w;
+    padding-right: 30px;
+    .payment-pic {
+      position: relative;
+      height: $payment-pic-h;
+    }
+    .text-block {
+      margin-bottom: 15px;
+      color: $dark-black;
+      width: $payment-list-item-w - 10;
+    }
+    .payment {
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      &:hover {
+        cursor: pointer;
+      }
+      &.visa {
+        top: 22px;
+        left: 52px;
+        span {
+          top: 17px;
+          left: -52px;
+        }
+        @include size(56px,60px);
+        background: url("../images/payment/visa.png") 0 0 no-repeat;
+      }
+      &.webmoney {
+        top: 34px;
+        left: 39px;
+        span {
+          top: 5px;
+          left: -39px;
+        }
+        @include size(100px,27px);
+        background: url("../images/payment/webmoney.png") 0 0 no-repeat;
+      }
+      &.yandex {
+        @include size(90px,40px);
+        background: url("../images/payment/yandex.png") 0 0 no-repeat;
+        left: 40px;
+        top: 29px;
+        span {
+          top: 11px;
+          left: -40px;
+        }
+      }
+      &.atm {
+        top: 6px;
+        left: 42px;
+        span {
+          top: 35px;
+          left: -41px;
+        }
+        @include size(74px,73px);
+        background: url("../images/payment/atm.png") 0 0 no-repeat;
+      }
+    }
+  }
+  margin-bottom: 50px;
+}
+
+

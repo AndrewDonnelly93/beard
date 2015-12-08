@@ -1,0 +1,121 @@
+$content-frame-w: 1043px;
+$project-video-h: 670px;
+
+.project-description {
+  position: relative;
+  background: $yellow;
+  padding-top: 344px;
+  padding-bottom: 35px;
+  .project-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include border-box;
+    padding-top: 60px;
+    .layout-center-wrapper {
+      right: -50px;
+    }
+    @include size(100%,$quest-screen-h);
+    background: $bg-color url("../images/bg-quest.png") center 0 no-repeat;
+  }
+  .project-frame {
+    p {
+      width: 100%;
+    }
+    h2 {
+      width: 100%;
+    }
+    ul,ol {
+      width: 100%;
+    }
+    padding-top: 30px;
+    padding-bottom: 44px;
+    background: $base-color;
+    width: $content-frame-w;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    &:before {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 53.5px 37px 53.5px;
+      border-color: transparent transparent $base-color transparent;
+      content: '';
+      position: absolute;
+      top: -37px;
+      left: 50%;
+      margin-left: -53.5px;
+    }
+    .quest-video {
+      width: 100%;
+      height: $project-video-h;
+      margin-bottom: 30px;
+    }
+    .content-wrapper {
+      text-align: left;
+      width: $content-frame-w - 38;
+      margin: 0 auto;
+    }
+    .section-description {
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .quest-description {
+      padding-top: 28px;
+      width: 100%;
+    }
+    img {
+      @extend %adaptive-image;
+      margin-bottom: 20px;
+    }
+    .show-quest {
+      position: static;
+      display: table-row;
+      .dark-section-description {
+        display: table-cell;
+        vertical-align: middle;
+        padding-right: 50px;
+      }
+      .btn {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
+  .holiday-gallery-list {
+    li {
+      width: 25%;
+      vertical-align: top;
+      img {
+        vertical-align: bottom;
+        margin-bottom: 0;
+      }
+    }
+    margin-bottom: 40px;
+  }
+
+  .quest-description {
+    padding-top: 0 !important;
+    .text-block {
+      ul, ol {
+        @include border-box;
+        padding-left: 23px;
+      }
+    }
+    .content-block {
+      padding: 0;
+    }
+    .holiday-block {
+      padding: 0;
+      width: 100%;
+    }
+    @media (min-width: $max-body-w) {
+      .holiday-block {
+        padding: 0;
+        width: 100%;
+      }
+    }
+  }
+}

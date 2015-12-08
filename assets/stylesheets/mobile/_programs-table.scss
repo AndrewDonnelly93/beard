@@ -1,0 +1,62 @@
+$back-to-menu-h: 96px;
+$more-btn-mobile-w: 331px;
+$more-btn-mobile-h: 65px;
+
+.mobile {
+  .programs-table {
+    display: none;
+    &.active {
+      display: table;
+    }
+    .back-to-menu {
+      background: $yellow;
+      height: $back-to-menu-h;
+      line-height: $back-to-menu-h + 2;
+      color: $dark-black;
+      font-size: 30px;
+      span {
+        position: relative;
+        padding-left: 30px;
+        &:before {
+          content: '';
+          position: absolute;
+          @include size(12px,21px);
+          background: url(../images/sprite/sprite.png) no-repeat -40px -181px;
+          top: 11px;
+          left: -5px;
+        }
+      }
+    }
+    .program-information {
+      background: $light-orange;
+      .program-image {
+        @extend %adaptive-image;
+        margin-bottom: 15px;
+      }
+      .small-title {
+        margin-bottom: 15px;
+      }
+      .more-btn {
+        font: {
+          family: "Circe-Bold", sans-serif;
+          size: 1.25em;
+        }
+        @include size(0.75*$more-btn-mobile-w,0.75*$more-btn-mobile-h);
+        line-height: 0.75*$more-btn-mobile-h;
+        margin-bottom: 1em;
+        @media (min-width: $mobile-768) and (orientation: portrait) {
+          @include size($more-btn-mobile-w,$more-btn-mobile-h);
+          font-size: 1.75em;
+          line-height: $more-btn-mobile-h + 2;
+          margin-bottom: 2em;
+        }
+      }
+      .text-block {
+        margin-bottom: 1em;
+        @media (min-width: $mobile-768) and (orientation: portrait) {
+          margin-bottom: 2em;
+        }
+      }
+    }
+  }
+}

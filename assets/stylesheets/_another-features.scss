@@ -1,0 +1,32 @@
+$feature-w: 383px;
+
+.another-features {
+  text-align: left;
+  padding: 75px 0 100px;
+  .middle-title {
+    margin-bottom: 10px;
+  }
+  .section-description {
+    margin-bottom: 40px;
+  }
+  background: $green;
+  .another-features-list {
+    li {
+      width: $feature-w;
+      position: relative;
+      display: inline-block;
+      margin-right: 13px;
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+      .feature-img {
+        @include size($feature-w, 581px);
+        margin-bottom: 40px;
+      }
+      .small-section-title {
+        margin-bottom: 20px;
+        @extend %text-overflow;
+      }
+    }
+  }
+}

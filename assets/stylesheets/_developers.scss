@@ -1,0 +1,54 @@
+$basic-table-cell-w: 397px;
+$universities-table-blank-cell-w: 114px;
+$developer-w: 233px;
+$developer-img-h: 281px;
+
+.developers {
+  text-align: left;
+  background: $black;
+  padding: 75px 0 88px;
+  .middle-title {
+    margin-bottom: 10px;
+  }
+  .section-description {
+    margin-bottom: 90px;
+  }
+  .universities-table {
+    vertical-align: top;
+    width: $basic-table-cell-w * 2 + $universities-table-blank-cell-w;
+    .university-img {
+      display: inline-block;
+      &.ural {
+        @include size(391px, 134px);
+      }
+      &.itmo {
+        @include size(337px, 133px);
+      }
+    }
+    td {
+      width: $basic-table-cell-w;
+      &.blank-cell {
+        width: $universities-table-blank-cell-w;
+      }
+    }
+    .universities-names {
+      td {
+        padding-bottom: 45px;
+      }
+    }
+  }
+  .team {
+    margin-top: 86px;
+    .developer {
+      width: $developer-w;
+    }
+    .developer-img {
+      @include size($developer-w, $developer-img-h);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .text-block {
+      @extend %text-overflow;
+    }
+  }
+}
