@@ -80,7 +80,6 @@ GeneralPrice.prototype.removeFeatureCost = function(value, feature) {
 GeneralPrice.prototype.setCost = function() {
   this.cost = this.sliderAmountCost + this.siteCost + this.crossBrowserCost
   + this.mobileAdaptationCost + this.contentCost + this.seoCost + this.featuresCost;
-  console.log(this);
   if ($(".general-price").length) {
     $(".general-price .price").text(this.getCost());
   }
@@ -214,73 +213,6 @@ function setFeatures(featureList, generalPrice, featureElement) {
     }
   });
 }
-/*function setFeatures(featureList, generalPrice, featureElement) {
-  var feature;
-  if (featureElement.indexOf(".browsers") !== -1) {
-    feature = 'crossBrowser';
-  }
-  var optionsElement = $(featureElement).find(":checkbox").length ? ":checkbox" : ":radio";
-  console.log($(featureElement).find(":checkbox"));
-  console.log(optionsElement);
-  $(featureElement).find(optionsElement).on("click", function(e) {
-    console.log(e.target);
-    var $this = $(this);
-    var currentFeature = $this.attr("id");
-    var currentFeaturePrice = getFeaturePrice(currentFeature, featureList);
-    // У чекбоксов прибавляется и убавляется цена стоимости
-    if (!(currentFeature === 'all-browsers')) {
-      if ($this.is(":checked")) {
-        generalPrice.addFeatureCost(currentFeaturePrice, feature);
-        //console.log($this.parents(featureElement));
-        //// Кнопка все браузеры - не отмечена, реализуется обычное поведение
-        //if (!$this.parents(featureElement).find("#all-browsers").is(":checked")) {
-        //  console.log($this.parents(featureElement).find("#all-browsers").is(":checked"));
-        //  generalPrice.addFeatureCost(currentFeaturePrice, feature);
-        //
-        //} else {
-        //  // Отмечена кнопка все браузеры, стоимость равна - все
-        //  currentFeature = 'all-browsers';
-        //  currentFeaturePrice = getFeaturePrice(currentFeature, featureList);
-        //  if (generalPrice[feature+'Cost'] !== currentFeaturePrice) {
-        //    generalPrice[feature+'Cost'] = currentFeaturePrice;
-        //    generalPrice.setCost();
-        //  }
-        //  // Но нужно сохранять текущую стоимость всех опций на данный момент
-        //  // в специальном свойстве, при убирании галочки все она станет основной ценой
-        //  if (feature === 'crossBrowser') {
-        //    this.tempCrossBrowserCost +=
-        //  }
-        //}
-      } else {
-        generalPrice.removeFeatureCost(currentFeaturePrice, feature);
-        //// Если кнопка все браузеры не отмечена, то вычитаем цену дополнительной опции
-        //if (!$this.parents(featureElement).find("#all-browsers").is(":checked")) {
-        //  generalPrice.removeFeatureCost(currentFeaturePrice, feature);
-        //} else {
-        //  this.tempCrossBrowserCost -=
-        //}
-      }
-    }
-    // У радиобаттонов при отмечании сравнивается текущая цена с 0,
-    // если цена равна 0, то прибавляется к общей стоимости
-    //if (optionsElement === ":radio") {
-    //  if ($this.is(":checked") && ($this.val().indexOf('yes') !== -1) && !generalPrice[feature+'Cost']) {
-    //    console.log($this.val().indexOf('yes'));
-    //    generalPrice.addFeatureCost(currentFeaturePrice, feature);
-    //  } else if ($this.is(":checked") && ($this.val().indexOf('no') !== -1)) {
-    //    generalPrice.removeFeatureCost(currentFeaturePrice, feature);
-    //  }
-    //}
-    console.log(generalPrice);
-  });
-}
-
-/**
- * Ставит checked = false всем объектам, кроме текущего
- * @param currentId
- * @param list
- */
-
 
 $(function() {
   var generalPrice = new GeneralPrice();
@@ -308,7 +240,6 @@ $(function() {
         $("#slider-amount" ).val(ui.value);
         amountSliderCalculate.setCost($("#slider-amount").val(),
             getSliderCost);
-        console.log(amountSliderCalculate);
         generalPrice.setSliderAmountCost(amountSliderCalculate.getCost());
       },
       change: function(event,ui) {
@@ -362,7 +293,6 @@ $(function() {
         if ($this.is(":checked")) {
           generalPrice['crossBrowserCost'] = getFeaturePrice(currentFeature, browsersList);
           generalPrice.setCost();
-          console.log('cost: ' + generalPrice['crossBrowserCost']);
           $this.parents(browserElement).find(":checkbox").each(function () {
             if ($(this).attr("id") !== currentFeature) {
               $(this).attr("checked", false);
@@ -372,21 +302,6 @@ $(function() {
           generalPrice['crossBrowserCost'] = 0;
           generalPrice.setCost();
         }
-
-          // Ставим disabled всем чекбоксам
-          //$this.parents(".browsers-list").find(":checkbox").attr("disabled", true);
-          //// Ставим класс disabled меткам
-          //$this.parents(".browsers-list").find("span").addClass("disabled");
-          //$this.parents(".browsers-list").find("#" + currentFeature).attr("disabled", false);
-          //$this.parents(".browsers-list").find("label").each(function () {
-          //  if ($(this).attr("for") === currentFeature) {
-          //    $(this).find("span").removeClass("disabled");
-          //  }
-          //});
-        //} else {
-        //  $this.parents(".browsers-list").find(":checkbox").attr("disabled", false);
-        //  $this.parents(".browsers-list").find("span").removeClass("disabled");
-        //}
       } else {
         $this.parents(browserElement).find("#all-browsers").attr("checked", false);
         if (!flag && (generalPrice['crossBrowserCost'] === allBrowsersPrice)) {
@@ -395,16 +310,8 @@ $(function() {
         ($this.is(":checked") && (currentFeature !== 'chrome')) ?
           generalPrice.addFeatureCost(getFeaturePrice(currentFeature, browsersList), 'crossBrowser')
           :  generalPrice.removeFeatureCost(getFeaturePrice(currentFeature, browsersList), 'crossBrowser');
-
-        //generalPrice.setCost();
-        //generalPrice['crossBrowserCost'] = generalPrice['crossBrowserCost'] >= allBrowsersPrice ?
-        //  generalPrice['crossBrowserCost'] - allBrowsersPrice
-        //  : generalPrice['crossBrowserCost'];
-       // generalPrice['crossBrowserCost'] = 0;
-       // setFeatures(browsersList, generalPrice, browserElement);
       }
     });
-    //setFeatures(browsersList, generalPrice, browserElement);
   }
 
   if ($(".mobile-adaptation-list").length) {
