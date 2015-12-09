@@ -13,6 +13,8 @@ $input-h: 55px;
 $input-w: 381px;
 $textarea-h: 133px;
 $dark-black: #303030;
+$middle-gray: #999;
+$checkbox-size: 20px;
 
 $menu-padding-right-w: 32px;
 $menu-icon-w: 28px;
@@ -34,13 +36,13 @@ $max-dark-section-description-w: 560px;
 $light-gray: rgb(248, 248, 248);
 
 $gray: #666;
-$middle-gray: #999;
+
 $orange: #C9A244;
 $extralight-gray: #d1d1d1;
 $light-brown: #dfb245;
 $yellow: rgb(255, 201, 70);
 $main-wrapper-w: 1006px;
-$checkbox-size: 16px;
+
 
 
 $social-item-size: 29px;
@@ -377,6 +379,15 @@ a {
     size: 24px;
   }
 }
+
+.small-section-description {
+  color: $middle-gray;
+  font: {
+    family: "Circe-Light", sans-serif;
+    size: 14px;
+  }
+  line-height: 1.2;
+}
 /*
 .extrasmall-title {
   text-transform: uppercase;
@@ -385,6 +396,11 @@ a {
     size: 14px;
   }
 }
+*/
+
+ul li {
+  list-style: none;
+}
 
 input[type="radio"],
 input[type="checkbox"] {
@@ -392,48 +408,42 @@ input[type="checkbox"] {
 }
 input[type="radio"] + label,
 input[type="checkbox"] + label {
+  margin-left: 33px;
   position: relative;
+  font: {
+    family: "Circe-Light", sans-serif;
+    size: 18px;
+  }
+  color: $black;
 }
 input[type="radio"] + label span,
 input[type="checkbox"] + label span {
+  left: -33px;
+  top: 2px;
   position: absolute;
   display: inline-block;
   @include size($checkbox-size,$checkbox-size);
-  background: url(../images/sprite/sprite.png) no-repeat -175px -135px;
+  background: url(../images/checkbox.png) no-repeat 0 0;
+  &.disabled {
+    cursor: default;
+  }
   cursor:pointer;
 }
 
-input[type="radio"] + label span {
-  @include size($radio-size, $radio-size);
-  @include border-radius(50%);
-  background: $base-color;
-  border: 1px solid $extralight-gray;
-  @include border-box;
-}
-
 input[type="checkbox"] + label span:hover {
-  background: url(../images/sprite/sprite.png) no-repeat -175px -135px;
+  background: url(../images/checkbox.png) no-repeat 0 0;
 }
 
 input[type="radio"]:checked + label span,
 input[type="radio"]:checked + label span:hover {
-  &:before {
-    top: 3px;
-    left: 3px;
-    position: absolute;
-    @include border-box;
-    content: '';
-    background: $yellow;
-    @include size($radio-size - 8,$radio-size - 8);
-    @include border-radius(50%);
-  }
+  background: url(../images/checkbox-checked.png) no-repeat 0 0;
 }
 
 input[type="checkbox"]:checked + label span,
 input[type="checkbox"]:checked + label span:hover {
-  background: url(../images/sprite/sprite.png) no-repeat -196px -135px;
+  background: url(../images/checkbox-checked.png) no-repeat 0 0;
 }
-
+/*
 .small-text-block {
   color: $gray;
   font: {

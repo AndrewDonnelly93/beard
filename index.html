@@ -82,47 +82,69 @@
 </section>
 <section class="calculate">
     <div class="layout-center-wrapper clearfix">
+        <form action="" class="calculation-form">
         <div class="middle-title">Давай посчитаем твой сайт</div>
         <article class="left-block">
             <div class="scenario">
                 <div class="small-title">Выбери вид страницы</div>
                 <input type="hidden" value="" id="#site-type">
                 <select class="select-site-type">
-                    <option value="landing">Лэндинг</option>
-                    <option value="full-site">Многостраничный сайт</option>
+                    <option value="landing">Посадочная страница</option>
+                    <option value="full-site">Обычный сайт</option>
+                    <option value="online-shop">Интернет Магазин</option>
+                    <option value="online-service">Интернет Сервис</option>
                 </select>
             </div>
-            <!--<div class="ui-slider-block time">-->
-                <!--<div class="small-title">Длительность Мероприятия</div>-->
-                <!--<input type="text" readonly value="" id="slider-time">-->
-                <!--<div id="slider-range-time"></div>-->
-                <!--<ul class="scale-list">-->
-                    <!--<li>1-->
-                    <!--<li>1.5-->
-                    <!--<li>2 часа-->
-                    <!--<li>3-->
-                    <!--<li>4-->
-                    <!--<li>5-->
-                    <!--<li>Больше-->
-                <!--</ul>-->
-            <!--</div>-->
-            <!--<div class="ui-slider-block heroes">-->
-                <!--<div class="small-title">Количество Героев (Актеров)</div>-->
-                <!--<input type="text" readonly value="" id="slider-heroes">-->
-                <!--<div id="slider-range-heroes"></div>-->
-                <!--<ul class="scale-list">-->
-                    <!--<li>1-->
-                    <!--<li>2 героя-->
-                    <!--<li>3-->
-                    <!--<li>4-->
-                    <!--<li>5-->
-                    <!--<li>Больше-->
-                <!--</ul>-->
-            <!--</div>-->
+             <div class="ui-slider-block amount">
+                 <div class="small-title">Количество разделов (пусть даже примерное)</div>
+                    <input type="text" readonly value="" id="slider-amount">
+                    <div id="slider-range-amount"></div>
+                    <ul class="scale-list">
+                        <li><5
+                        <li>5
+                        <li>6
+                        <li>7
+                        <li>8
+                        <li>9
+                        <li>10
+                        <li>11
+                    </ul>
+                </div>
+            <div class="small-section-description">
+                Эти данные нужны нам, для того, чтобы точно посчитать стоимость вашего сайта.
+                Процесс разработки каждого раздела делится на несколько процессов:
+                проектирование, дизайн, верстка, разработка, тестирование
+            </div>
+            <article class="cross-browser-adaptation">
+                <div class="small-title">Адаптация под браузеры</div>
+                <ul class="browsers-list">
+                    <li><input type="checkbox" id="all-browsers" value="all-browsers">
+                        <label class="accept-label" for="all-browsers"><span></span>Все</label>
+                    <li><input type="checkbox" id="chrome" value="chrome">
+                        <label class="accept-label" for="chrome"><span></span>Chrome</label>
+                    <li><input type="checkbox" id="opera" value="opera">
+                        <label class="accept-label" for="opera"><span></span>Opera</label>
+                    <li><input type="checkbox" id="firefox" value="firefox">
+                        <label class="accept-label" for="firefox"><span></span>Mozilla Firefox</label>
+                    <li><input type="checkbox" id="yandex" value="yandex">
+                        <label class="accept-label" for="yandex"><span></span>Yandex Browser</label>
+                    <li><input type="checkbox" id="ie" value=ie">
+                        <label class="accept-label" for="ie"><span></span>Internet Explorer</label>
+                </ul>
+            </article>
         </article>
         <div class="general-price">Итого: <span><span class="price">44 000</span> руб.</span></div>
         <a href="" class="btn order-btn">Заказать</a>
         <article class="right-block">
+            <article class="cross-browser-adaptation">
+                <div class="small-title">Адаптация под браузеры</div>
+                <ul class="mobile-adaptation-list">
+                    <li><input type="radio" id="yes-mobile-adaptation" value="yes-mobile-adaptation" name="mobile">
+                        <label class="accept-label" for="mobile-adaptation"><span></span>Делаем</label>
+                    <li><input type="radio" id="no-mobile-adaptation" value="no-mobile-adaptation" name="mobile">
+                        <label class="accept-label" for="no-mobile-adaptation"><span></span>Не делаем</label>
+                </ul>
+            </article>
             <!--<div class="holidays-place">-->
                 <!--<div class="small-title">Где проводим</div>-->
                 <!--<div class="owl-carousel places" id="places">-->
@@ -228,6 +250,7 @@
                 <!--</article>-->
             <!--</div>-->
         </article>
+        </form>
     </div>
 </section>
 <section class="chronology">

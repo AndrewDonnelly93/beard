@@ -1,8 +1,6 @@
 $calculate-wrapper-w: 1185px;
 $calculate-left-block-w: 585px;
-$calculate-right-block-w: 591px;
-$pic-place-w: 152px;
-$pic-place-h: 152px;
+$calculate-right-block-w: 525px;
 
 .calculate {
   padding: 90px 0 90px;
@@ -48,7 +46,7 @@ $pic-place-h: 152px;
       margin-bottom: 80px;
     }
     .ui-slider-block {
-      margin-bottom: 150px;
+      margin-bottom: 70px;
       color: $dark-black;
       font: {
         family: "Circe-Light", sans-serif;
@@ -69,76 +67,59 @@ $pic-place-h: 152px;
           display: inline-block;
         }
       }
-      #slider-heroes {
-        display: none;
-      }
     }
-    .time {
+    .amount {
       position: relative;
-      #slider-time {
+      #slider-amount {
         display: none;
       }
       .scale-list {
         li {
+          color: $black;
+          font: {
+            family: "Circe-Bold", sans-serif;
+            size: 18px;
+          }
           &:first-child {
             left: 0;
           }
           &:nth-child(2) {
-            left: 82px;
+            left: 84px;
           }
           &:nth-child(3) {
-            left: 150px;
+            left: 165px;
           }
           &:nth-child(4) {
-            left: 257px;
+            left: 247px;
           }
           &:nth-child(5) {
-            left: 337px;
+            left: 327px;
           }
           &:nth-child(6) {
-            left: 418px;
+            left: 405px;
           }
           &:nth-child(7) {
-            .short {
-              display: none;
-            }
-            left: 480px;
-            @media (max-width: $screen-1280) {
-              left: 460px;
-            }
+            left: 483px;
+          }
+          &:nth-child(8) {
+            left: 562px;
           }
         }
       }
     }
-    .heroes {
-      position: relative;
-      margin-bottom: 40px;
-      .scale-list {
+    .small-section-description {
+      margin-bottom: 85px;
+    }
+    .cross-browser-adaptation {
+      .small-title {
+        margin-bottom: 30px;
+      }
+      text-align: left;
+      .browsers-list {
         li {
-          &:first-child {
-            left: 0;
-          }
-          &:nth-child(2) {
-            left: 82px;
-          }
-          &:nth-child(3) {
-            left: 202px;
-          }
-          &:nth-child(4) {
-            left: 302px;
-          }
-          &:nth-child(5) {
-            left: 401px;
-          }
-          &:nth-child(6) {
-            left: 480px;
-            .short {
-              display: none;
-            }
-            @media (max-width: $screen-1280) {
-              left: 460px;
-            }
-          }
+          display: inline-block;
+          margin-bottom: 30px;
+          margin-right: 44px;
         }
       }
     }
@@ -147,79 +128,14 @@ $pic-place-h: 152px;
     float: right;
     text-align: left;
     width: $calculate-right-block-w;
-    @media (max-width: $screen-1280) {
-      // right: 72px;
-      position: relative;
-    }
-    .holidays-place {
-      .owl-item {
-        &:hover {
-          cursor: pointer;
-        }
-      }
+    .cross-browser-adaptation {
       .small-title {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
       }
-      .places {
-        text-align: left;
-        margin-bottom: 60px;
-        width: 512px;
-        .pic-place {
-          @include size($pic-place-w,$pic-place-h);
-          margin-bottom: 19px;
-          display: block;
-          position: relative;
-          &:hover {
-            cursor: pointer;
-          }
-        }
-        .place-description {
-          padding-left: 5px;
-          @include border-box;
-          padding-bottom: 3px;
-          .place-name {
-            @extend %text-overflow;
-            &:hover {
-              cursor: pointer;
-            }
-          }
-          .place-addresse {
-            @extend %text-overflow;
-            &:hover {
-              cursor: pointer;
-            }
-          }
-          width: $pic-place-w;
-          font: {
-            family: "Circe-Light", sans-serif;
-            size: 18px;
-          }
-          color: $dark-black;
-          a {
-            text-decoration: none;
-            color: $gray;
-            display: block;
-          }
-          position: relative;
-        }
-        .place {
-          .line {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 98px;
-            @include border-box;
-            border: 4px solid $yellow;
-          }
-          position: relative;
-          width: $pic-place-w;
-          &.current {
-              .line {
-                display: block;
-              }
-          }
+      .mobile-adaptation-list {
+        li {
+          display: inline-block;
+          margin-right: 65px;
         }
       }
     }

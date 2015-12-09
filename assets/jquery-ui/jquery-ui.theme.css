@@ -411,7 +411,7 @@
 
 .ui-slider-horizontal {
 	position: relative;
-	width: 499px;
+	width: 559px;
 	height: 30px;
 	background: transparent;
 	display: inline-block;
@@ -422,11 +422,11 @@
 	z-index: 5;
 	position: absolute;
 	content: '';
-	background: #a2a2a2;
+	background: #000;
 	top: 14px;
 	bottom: 14px;
 	left: 0;
-	right: 0;
+	right: -22px;
 }
 
 .ui-slider .ui-slider-range {
@@ -448,15 +448,12 @@
 	outline-width: 0;
 	position: absolute;
 	display: block;
-	width: 19px;
-	height: 19px;
-	background: #FFC946;
+	width: 23px;
+	height: 20px;
+	background: url(../images/triangle.png) no-repeat 0 0;
 	border: 0;
 	top: 5px;
 	z-index: 5;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	border-radius: 50%;
 }
 
 @media (max-width: 500px) {

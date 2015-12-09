@@ -10,50 +10,56 @@ function slimScrollInitialise(className) {
 }
 
 //http://stackoverflow.com/questions/993834/adding-post-parameters-before-submit
-
+/**
+ * Общая цена, включающая в себя вид сайта,
+ * количество разделов
+ * @constructor
+ */
 function GeneralPrice() {
-  this.sliderTimeCost = 0;
-  this.sliderHeroesCost = 0;
+  // Количество разделов
+  this.sliderAmountCost = 0;
+  // Тип сайта
   this.siteCost = 0;
-  this.placeCost = 0;
-  this.featuresCost = 0;
+  // Кроссбраузерность
+  this.crossBrowserCost = 0;
+  // Адаптация под мобильные устройства
+  this.mobileAdaptationCost = 0;
   this.cost = 0;
 }
 
-GeneralPrice.prototype.setSliderTimeCost = function(value) {
-  this.sliderTimeCost = value;
+GeneralPrice.prototype.setSliderAmountCost = function(value) {
+  this.sliderAmountCost = value;
   this.setCost();
 };
 
-GeneralPrice.prototype.setSliderHeroesCost = function(value) {
-  this.sliderHeroesCost = value;
-  this.setCost();
-};
 
 GeneralPrice.prototype.setSiteCost = function(value) {
   this.siteCost = value;
   this.setCost();
 };
 
-GeneralPrice.prototype.setPlaceCost = function(value) {
-  this.placeCost = value;
+/**
+ * Прибавление к общей стоимости цены дополнительной опции
+ * @param value стоимость дополнительной опции
+ * @param feature название дополнительной опции
+ */
+GeneralPrice.prototype.addFeatureCost = function(value, feature) {
+  this[feature+'Cost'] += value;
   this.setCost();
 };
 
-GeneralPrice.prototype.addFeatureCost = function(value) {
-  this.featuresCost += value;
+GeneralPrice.prototype.removeFeatureCost = function(value, feature) {
+  this[feature+'Cost'] -= value;
   this.setCost();
 };
 
-GeneralPrice.prototype.removeFeatureCost = function(value) {
-  this.featuresCost -= value;
-  this.setCost();
-};
-
+/**
+ * Вычисление общей стоимости продукта
+ */
 GeneralPrice.prototype.setCost = function() {
-  this.cost = this.sliderTimeCost +
-    this.sliderHeroesCost + this.siteCost +
-    this.placeCost + this.featuresCost;
+  this.cost = this.sliderAmountCost + this.siteCost + this.crossBrowserCost
+  + this.mobileAdaptationCost;
+  console.log(this);
   if ($(".general-price").length) {
     $(".general-price .price").text(this.getCost());
   }
@@ -63,6 +69,11 @@ GeneralPrice.prototype.getCost = function() {
   return this.cost;
 };
 
+/**
+ * Создание jQuery UI слайдера с количеством разделов
+ * @param dataInputArray
+ * @constructor
+ */
 function SliderCalculate(dataInputArray) {
   this.dataInput = dataInputArray;
   this.price = dataInputArray[0].cost;
@@ -76,6 +87,13 @@ SliderCalculate.prototype.getCost = function() {
   return this.price;
 };
 
+/**
+ * Получение текущего значения стоимости из массива с ценами
+ * Текущее значение ищется в массиве со стоимостью
+ * @param value
+ * @param slider
+ * @returns {*}
+ */
 function getSliderCost(value,slider) {
   value = parseInt(value,10);
   for (var i = 0; i < slider.dataInput.length; i++) {
@@ -120,44 +138,16 @@ function getSiteCost(program, site) {
   return false;
 }
 
-function Place(dataInput) {
-  this.places = dataInput;
-  this.price = dataInput[0].price;
-}
-
-Place.prototype.setPrice = function(price) {
-  this.price = price;
-};
-
-Place.prototype.getPrice = function(price) {
-  return this.price;
-};
-
-function getPlaceCost(currentPlace, selectedPlace) {
-  for (var i = 0; i < currentPlace.places.length; i++) {
-    if (currentPlace.places[i].place === selectedPlace) {
-      return currentPlace.places[i].price;
-    }
-  }
-  return false;
-}
-
-function setCurrentPlaceCost(generalPrice,currentPlace) {
-  $(document).on("click", ".places .owl-item", function() {
-    $(this).parents(".places").find(".place").removeClass("current");
-    $(this).find(".place").addClass("current");
-    var selectedPlace =  $(this).find(".place").attr("data-place");
-    var currentPrice = getPlaceCost(currentPlace,selectedPlace);
-    currentPlace.setPrice(currentPrice);
-    generalPrice.setPlaceCost(currentPlace.getPrice());
-  });
-}
-
+/**
+ * Конструктор перечня дополнительных опций
+ * @param {Array.<Object>} dataInput
+ * @constructor
+ */
 function Features(dataInput) {
   this.features = dataInput;
 }
 
-function getFeaturePrice(currentFeature,featureList) {
+function getFeaturePrice(currentFeature, featureList) {
   for (var i = 0; i < featureList.features.length; i++) {
     if (featureList.features[i].feature === currentFeature) {
       return featureList.features[i].price;
@@ -166,104 +156,121 @@ function getFeaturePrice(currentFeature,featureList) {
   return false;
 }
 
-function setFeatures(featureList, generalPrice) {
-  $(".another-features-list").find(":checkbox").on("click", function() {
+/**
+ *
+ * @param {Features} featureList объект со списком из названий и
+ * стоимости дополнительных опций
+ * @param {GeneralPrice} generalPrice
+ * @param {*} featureElement элемент из DOM у списка
+ */
+function setFeatures(featureList, generalPrice, featureElement) {
+  var feature;
+  if (featureElement.indexOf(".browsers") !== -1) {
+    feature = 'crossBrowser';
+  } else if (featureElement.indexOf(".mobile-adaptation") !== -1) {
+    feature = 'mobileAdaptation';
+  }
+  var optionsElement = $(featureElement).find(":checkbox").length ? ":checkbox" : ":radio";
+  console.log($(featureElement).find(":checkbox"));
+  console.log(optionsElement);
+  $(featureElement).find(optionsElement).on("click", function() {
     var $this = $(this);
     var currentFeature = $this.attr("id");
-    var currentFeaturePrice = getFeaturePrice(currentFeature,featureList);
-    if ($this.is(":checked")) {
-      generalPrice.addFeatureCost(currentFeaturePrice);
-    } else {
-      generalPrice.removeFeatureCost(currentFeaturePrice);
-    }
+    var currentFeaturePrice = getFeaturePrice(currentFeature, featureList);
+    // У чекбоксов прибавляется и убавляется цена стоимости
+    if (optionsElement === ":checkbox") {
+      if ($this.is(":checked")) {
+        console.log($this.parents(featureElement));
+        // Кнопка все браузеры - не отмечена, реализуется обычное поведение
+        if (!$this.parents(featureElement).find("#all-browsers").is(":checked")) {
+          console.log($this.parents(featureElement).find("#all-browsers").is(":checked"));
+          generalPrice.addFeatureCost(currentFeaturePrice, feature);
+
+        } else {
+          // Отмечена кнопка все браузеры, стоимость равна - все
+          currentFeature = 'all-browsers';
+          currentFeaturePrice = getFeaturePrice(currentFeature, featureList);
+          if (generalPrice[feature+'Cost'] !== currentFeaturePrice) {
+            generalPrice[feature+'Cost'] = currentFeaturePrice;
+            generalPrice.setCost();
+          }
+          // Но нужно сохранять текущую стоимость всех опций на данный момент
+          // в специальном свойстве, при убирании галочки все она станет основной ценой
+          if (feature === 'crossBrowser') {
+            this.tempCrossBrowserCost +=
+          }
+        }
+      } else {
+        // Если кнопка все браузеры не отмечена, то вычитаем цену дополнительной опции
+        if (!$this.parents(featureElement).find("#all-browsers").is(":checked")) {
+          generalPrice.removeFeatureCost(currentFeaturePrice, feature);
+        } else {
+          this.tempCrossBrowserCost -=
+        }
+      }
+    } else {}
+    // У радиобаттонов при отмечании сравнивается текущая цена с 0,
+    // если цена равна 0, то прибавляется к общей стоимости
+    //if (optionsElement === ":radio") {
+    //  if ($this.is(":checked") && ($this.val().indexOf('yes') !== -1) && !generalPrice[feature+'Cost']) {
+    //    console.log($this.val().indexOf('yes'));
+    //    generalPrice.addFeatureCost(currentFeaturePrice, feature);
+    //  } else if ($this.is(":checked") && ($this.val().indexOf('no') !== -1)) {
+    //    generalPrice.removeFeatureCost(currentFeaturePrice, feature);
+    //  }
+    //}
+    console.log(generalPrice);
   });
 }
 
 $(function() {
   var generalPrice = new GeneralPrice();
-  if ($("#slider-range-time").length) {
+  if ($("#slider-range-amount").length) {
     // slider with select time of event
-    var timeSliderCalculate = new SliderCalculate([
-      {sliderInput: 1, trueInput: 1, cost: 10000},
-      {sliderInput: 2, trueInput: 1.5, cost: 11000},
-      {sliderInput: 3, trueInput: 2, cost: 12000},
-      {sliderInput: 4, trueInput: 3, cost: 13000},
-      {sliderInput: 5, trueInput: 4, cost: 14000},
-      {sliderInput: 6, trueInput: 5, cost: 15000},
-      {sliderInput: 7, trueInput: 6, cost: 16000}
+    var amountSliderCalculate = new SliderCalculate([
+      {sliderInput: 1, trueInput: 5, cost: 4000},
+      {sliderInput: 2, trueInput: 5, cost: 4000},
+      {sliderInput: 3, trueInput: 5, cost: 4000},
+      {sliderInput: 4, trueInput: 7, cost: 8000},
+      {sliderInput: 5, trueInput: 8, cost: 12000},
+      {sliderInput: 6, trueInput: 9, cost: 16000},
+      {sliderInput: 7, trueInput: 10, cost: 20000},
+      {sliderInput: 8, trueInput: 11, cost: 24000}
     ]);
-    generalPrice.setSliderTimeCost(timeSliderCalculate.getCost());
-    $("#slider-range-time").slider({
+    generalPrice.setSliderAmountCost(amountSliderCalculate.getCost());
+    $("#slider-range-amount").slider({
       range: "min",
       min: 1,
-      max: 7,
+      max: 8,
       step: 1,
       value: 1,
       animate: true,
       slide: function(event,ui) {
-        $("#slider-time" ).val(ui.value);
-        timeSliderCalculate.setCost($("#slider-time").val(),
+        $("#slider-amount" ).val(ui.value);
+        amountSliderCalculate.setCost($("#slider-amount").val(),
             getSliderCost);
-        generalPrice.setSliderTimeCost(timeSliderCalculate.getCost());
+        console.log(amountSliderCalculate);
+        generalPrice.setSliderAmountCost(amountSliderCalculate.getCost());
       },
       change: function(event,ui) {
-        $("#slider-time" ).val(ui.value);
-        timeSliderCalculate.setCost($("#slider-time").val(),
+        $("#slider-amount" ).val(ui.value);
+        amountSliderCalculate.setCost($("#slider-amount").val(),
           getSliderCost);
-        generalPrice.setSliderTimeCost(timeSliderCalculate.getCost());
+        generalPrice.setSliderAmountCost(amountSliderCalculate.getCost());
       }
     });
-    $( "#slider-time" ).val( $( "#slider-range-time" ).slider("value") );
+    $( "#slider-amount" ).val( $( "#slider-range-amoun" ).slider("value") );
   }
-
-  if ($("#slider-range-heroes").length) {
-    // slider with select amount of heroes
-    var heroesSliderCalculate = new SliderCalculate([
-        {sliderInput: 1, trueInput: 1, cost: 10000},
-        {sliderInput: 2, trueInput: 2, cost: 11000},
-        {sliderInput: 3, trueInput: 3, cost: 12000},
-        {sliderInput: 4, trueInput: 4, cost: 13000},
-        {sliderInput: 5, trueInput: 5, cost: 14000},
-        {sliderInput: 6, trueInput: 6, cost: 15000}
-    ]);
-    generalPrice.setSliderHeroesCost(heroesSliderCalculate.getCost());
-    $("#slider-range-heroes").slider({
-      range: "min",
-      min: 1,
-      max: 6,
-      step: 1,
-      value: 1,
-      animate: true,
-      slide: function(event,ui) {
-        $("#slider-heroes").val(ui.value);
-        heroesSliderCalculate.setCost($("#slider-heroes").val(),
-          getSliderCost);
-        generalPrice.setSliderHeroesCost(heroesSliderCalculate.getCost());
-      },
-      change: function(event,ui) {
-        $("#slider-heroes").val(ui.value);
-        heroesSliderCalculate.setCost($("#slider-heroes").val(),
-          getSliderCost);
-        generalPrice.setSliderHeroesCost(heroesSliderCalculate.getCost());
-      }
-      });
-    $("#slider-range-heroes").slider({
-      change: function(event,ui) {
-        $("#slider-heroes" ).val(ui.value);
-        heroesSliderCalculate.setCost($("#slider-heroes").val(),
-          getSliderCost);
-        generalPrice.setSliderHeroesCost(heroesSliderCalculate.getCost());
-      }
-    });
-    $( "#slider-heroes" ).val( $( "#slider-range-heroes" ).slider("value") );
-  }
+  
 
   if ($(".select-site-type").length) {
     // select scenario of event
     var fancySelect = $(".select-site-type");
     var currentTypeSite = new TypeSite([
-      {program: "landing", price: 10000},
-      {program: "full-site", price: 50000}
+      {program: "landing", price: 45000},
+      {program: "full-site", price: 65000},
+      {program: "online-shop", price: 90000},
+      {program: "online-service", price: 15000}
     ]);
     generalPrice.setSiteCost(currentTypeSite.getPrice());
     fancySelect.fancySelect({ forceiOS: true }).on('change.fs', function() {
@@ -272,34 +279,51 @@ $(function() {
     slimScrollInitialise(".options");
   }
 
-  if ($(".owl-carousel").length) {
-    // select place of event
-    var currentPlace = new Place([
-      {place: "maza", price: 5000},
-      {place: "maza-2", price: 7000},
-      {place: "maza-3", price: 8000},
-      {place: "maza-4", price: 9000}
+  if ($(".browsers-list").length) {
+    var browsersList = new Features([
+      {feature: "all-browsers", price: 16000},
+      {feature: "chrome", price: 0},
+      {feature: "opera", price: 2000},
+      {feature: "firefox", price: 2000},
+      {feature: "yandex", price: 2000},
+      {feature: "ie", price: 10000}
     ]);
-    generalPrice.setPlaceCost(currentPlace.getPrice());
-    var owlPlaces = $("#places");
-    owlPlaces.owlCarousel({
-      margin: 27,
-      autoWidth: true,
-      nav: true,
-      loop: true,
-      items: 3
-    });
-    setCurrentPlaceCost(generalPrice, currentPlace);
+
+    /**
+     * При выборе пункта "Все" в адаптации под браузеры
+     * всем остальным опциям ставится disabled
+     */
+    //$(".browsers-list").find(":checkbox").on("click", function() {
+    //  var $this = $(this);
+    //  var currentFeature = $this.attr("id");
+    //  if (currentFeature === 'all-browsers') {
+    //    if ($this.is(":checked")) {
+    //      // Ставим disabled всем чекбоксам
+    //      $this.parents(".browsers-list").find(":checkbox").attr("disabled", true);
+    //      // Ставим класс disabled меткам
+    //      $this.parents(".browsers-list").find("span").addClass("disabled");
+    //      $this.parents(".browsers-list").find("#" + currentFeature).attr("disabled", false);
+    //      $this.parents(".browsers-list").find("label").each(function() {
+    //        if ($(this).attr("for") === currentFeature) {
+    //          $(this).find("span").removeClass("disabled");
+    //        }
+    //      });
+    //    } else {
+    //      $this.parents(".browsers-list").find(":checkbox").attr("disabled", false);
+    //      $this.parents(".browsers-list").find("span").removeClass("disabled");
+    //    }
+    //  }
+    //});
+    setFeatures(browsersList, generalPrice, ".browsers-list");
   }
-  if ($(".another-features-list").length) {
-    var featuresList = new Features([
-      {feature: "cookery-class", price: 5000},
-      {feature: "balloons", price: 3000},
-      {feature: "make-up", price: 2000},
-      {feature: "clothes", price: 6000},
-      {feature: "lights", price: 4000}
+
+  if ($(".mobile-adaptation-list").length) {
+    var mobileAdaptationList = new Features([
+      {feature: "yes-mobile-adaptation", price: 20000},
+      {feature: "no-mobile-adaptation", price: 0}
     ]);
-    setFeatures(featuresList,generalPrice);
+   // setFeatures(mobileAdaptationList, generalPrice, ".mobile-adaptation-list");
   }
-});
+
+  });
 

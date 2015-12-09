@@ -19,7 +19,7 @@
   src: url("../fonts/circe/Circe-Bold.eot") format("embedded-opentype"), url("../fonts/circe/Circe-Bold.woff") format("woff"), url("../fonts/circe/Circe-Bold.ttf") format("truetype"), url("../fonts/circe/Circe-Bold.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
-.developers .team .text-block, .another-features .another-features-list li .small-section-title, .calculate .right-block .holidays-place .places .place-description .place-name, .calculate .right-block .holidays-place .places .place-description .place-addresse {
+.developers .team .text-block, .another-features .another-features-list li .small-section-title {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis; }
@@ -376,6 +376,12 @@ a {
   font-family: "Circe-Light", sans-serif;
   font-size: 24px; }
 
+.small-section-description {
+  color: #999;
+  font-family: "Circe-Light", sans-serif;
+  font-size: 14px;
+  line-height: 1.2; }
+
 /*
 .extrasmall-title {
   text-transform: uppercase;
@@ -384,55 +390,48 @@ a {
     size: 14px;
   }
 }
+*/
+ul li {
+  list-style: none; }
 
 input[type="radio"],
 input[type="checkbox"] {
-  display:none;
-}
+  display: none; }
+
 input[type="radio"] + label,
 input[type="checkbox"] + label {
+  margin-left: 33px;
   position: relative;
-}
+  font-family: "Circe-Light", sans-serif;
+  font-size: 18px;
+  color: #333; }
+
 input[type="radio"] + label span,
 input[type="checkbox"] + label span {
+  left: -33px;
+  top: 2px;
   position: absolute;
   display: inline-block;
-  @include size($checkbox-size,$checkbox-size);
-  background: url(../images/sprite/sprite.png) no-repeat -175px -135px;
-  cursor:pointer;
-}
-
-input[type="radio"] + label span {
-  @include size($radio-size, $radio-size);
-  @include border-radius(50%);
-  background: $base-color;
-  border: 1px solid $extralight-gray;
-  @include border-box;
-}
+  width: 20px;
+  height: 20px;
+  background: url(../images/checkbox.png) no-repeat 0 0;
+  cursor: pointer; }
+  input[type="radio"] + label span.disabled,
+  input[type="checkbox"] + label span.disabled {
+    cursor: default; }
 
 input[type="checkbox"] + label span:hover {
-  background: url(../images/sprite/sprite.png) no-repeat -175px -135px;
-}
+  background: url(../images/checkbox.png) no-repeat 0 0; }
 
 input[type="radio"]:checked + label span,
 input[type="radio"]:checked + label span:hover {
-  &:before {
-    top: 3px;
-    left: 3px;
-    position: absolute;
-    @include border-box;
-    content: '';
-    background: $yellow;
-    @include size($radio-size - 8,$radio-size - 8);
-    @include border-radius(50%);
-  }
-}
+  background: url(../images/checkbox-checked.png) no-repeat 0 0; }
 
 input[type="checkbox"]:checked + label span,
 input[type="checkbox"]:checked + label span:hover {
-  background: url(../images/sprite/sprite.png) no-repeat -196px -135px;
-}
+  background: url(../images/checkbox-checked.png) no-repeat 0 0; }
 
+/*
 .small-text-block {
   color: $gray;
   font: {
@@ -1060,7 +1059,7 @@ form input[type=submit] {
       .calculate .left-block .scenario .small-title {
         margin-bottom: 15px; }
     .calculate .left-block .ui-slider-block {
-      margin-bottom: 150px;
+      margin-bottom: 70px;
       color: #303030;
       font-family: "Circe-Light", sans-serif;
       font-size: 18px; }
@@ -1076,108 +1075,48 @@ form input[type=submit] {
           position: absolute;
           top: 0;
           display: inline-block; }
-      .calculate .left-block .ui-slider-block #slider-heroes {
-        display: none; }
-    .calculate .left-block .time {
+    .calculate .left-block .amount {
       position: relative; }
-      .calculate .left-block .time #slider-time {
+      .calculate .left-block .amount #slider-amount {
         display: none; }
-      .calculate .left-block .time .scale-list li:first-child {
-        left: 0; }
-      .calculate .left-block .time .scale-list li:nth-child(2) {
-        left: 82px; }
-      .calculate .left-block .time .scale-list li:nth-child(3) {
-        left: 150px; }
-      .calculate .left-block .time .scale-list li:nth-child(4) {
-        left: 257px; }
-      .calculate .left-block .time .scale-list li:nth-child(5) {
-        left: 337px; }
-      .calculate .left-block .time .scale-list li:nth-child(6) {
-        left: 418px; }
-      .calculate .left-block .time .scale-list li:nth-child(7) {
-        left: 480px; }
-        .calculate .left-block .time .scale-list li:nth-child(7) .short {
-          display: none; }
-        @media (max-width: 1280px) {
-          .calculate .left-block .time .scale-list li:nth-child(7) {
-            left: 460px; } }
-    .calculate .left-block .heroes {
-      position: relative;
-      margin-bottom: 40px; }
-      .calculate .left-block .heroes .scale-list li:first-child {
-        left: 0; }
-      .calculate .left-block .heroes .scale-list li:nth-child(2) {
-        left: 82px; }
-      .calculate .left-block .heroes .scale-list li:nth-child(3) {
-        left: 202px; }
-      .calculate .left-block .heroes .scale-list li:nth-child(4) {
-        left: 302px; }
-      .calculate .left-block .heroes .scale-list li:nth-child(5) {
-        left: 401px; }
-      .calculate .left-block .heroes .scale-list li:nth-child(6) {
-        left: 480px; }
-        .calculate .left-block .heroes .scale-list li:nth-child(6) .short {
-          display: none; }
-        @media (max-width: 1280px) {
-          .calculate .left-block .heroes .scale-list li:nth-child(6) {
-            left: 460px; } }
+      .calculate .left-block .amount .scale-list li {
+        color: #333;
+        font-family: "Circe-Bold", sans-serif;
+        font-size: 18px; }
+        .calculate .left-block .amount .scale-list li:first-child {
+          left: 0; }
+        .calculate .left-block .amount .scale-list li:nth-child(2) {
+          left: 84px; }
+        .calculate .left-block .amount .scale-list li:nth-child(3) {
+          left: 165px; }
+        .calculate .left-block .amount .scale-list li:nth-child(4) {
+          left: 247px; }
+        .calculate .left-block .amount .scale-list li:nth-child(5) {
+          left: 327px; }
+        .calculate .left-block .amount .scale-list li:nth-child(6) {
+          left: 405px; }
+        .calculate .left-block .amount .scale-list li:nth-child(7) {
+          left: 483px; }
+        .calculate .left-block .amount .scale-list li:nth-child(8) {
+          left: 562px; }
+    .calculate .left-block .small-section-description {
+      margin-bottom: 85px; }
+    .calculate .left-block .cross-browser-adaptation {
+      text-align: left; }
+      .calculate .left-block .cross-browser-adaptation .small-title {
+        margin-bottom: 30px; }
+      .calculate .left-block .cross-browser-adaptation .browsers-list li {
+        display: inline-block;
+        margin-bottom: 30px;
+        margin-right: 44px; }
   .calculate .right-block {
     float: right;
     text-align: left;
-    width: 591px; }
-    @media (max-width: 1280px) {
-      .calculate .right-block {
-        position: relative; } }
-    .calculate .right-block .holidays-place .owl-item:hover {
-      cursor: pointer; }
-    .calculate .right-block .holidays-place .small-title {
-      margin-bottom: 20px; }
-    .calculate .right-block .holidays-place .places {
-      text-align: left;
-      margin-bottom: 60px;
-      width: 512px; }
-      .calculate .right-block .holidays-place .places .pic-place {
-        width: 152px;
-        height: 152px;
-        margin-bottom: 19px;
-        display: block;
-        position: relative; }
-        .calculate .right-block .holidays-place .places .pic-place:hover {
-          cursor: pointer; }
-      .calculate .right-block .holidays-place .places .place-description {
-        padding-left: 5px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        padding-bottom: 3px;
-        width: 152px;
-        font-family: "Circe-Light", sans-serif;
-        font-size: 18px;
-        color: #303030;
-        position: relative; }
-        .calculate .right-block .holidays-place .places .place-description .place-name:hover {
-          cursor: pointer; }
-        .calculate .right-block .holidays-place .places .place-description .place-addresse:hover {
-          cursor: pointer; }
-        .calculate .right-block .holidays-place .places .place-description a {
-          text-decoration: none;
-          color: #666;
-          display: block; }
-      .calculate .right-block .holidays-place .places .place {
-        position: relative;
-        width: 152px; }
-        .calculate .right-block .holidays-place .places .place .line {
-          display: none;
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 98px;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          border: 4px solid #ffc946; }
-        .calculate .right-block .holidays-place .places .place.current .line {
-          display: block; }
+    width: 525px; }
+    .calculate .right-block .cross-browser-adaptation .small-title {
+      margin-bottom: 30px; }
+    .calculate .right-block .cross-browser-adaptation .mobile-adaptation-list li {
+      display: inline-block;
+      margin-right: 65px; }
 
 /*# sourceMappingURL=main.css.map */
