@@ -9,30 +9,34 @@ $calculate-right-block-w: 525px;
     margin-bottom: 66px;
   }
   .general-price {
-    position: absolute;
-    right: $calculate-wrapper-w - $calculate-left-block-w;
-    bottom: -160px;
-    color: $dark-black;
+    display: inline-block;
+    color: $black;
     font:
     {
       size: 30px;
       family: "Circe-Light", sans-serif;
     }
     span {
-      font-family: "Circe-Regular", sans-serif;
+      font:
+      {
+        size: 36px;
+        family: "Circe-Bold", sans-serif;
+      }
       &.price {
         margin-left: 10px;
       }
     }
   }
   .order-btn {
-    position: absolute;
-    right: 377px;
-    bottom: -165px;
-    height: 61px;
-    line-height: 63px;
+    width: auto;
+    display: inline-block;
+    padding: 0 84px;
+    color: $black;
+    height: 50px;
+    line-height: 51px;
     font: {
       family: "Circe-Bold", sans-serif;
+      size: 24px;
     }
   }
   .left-block {
@@ -43,7 +47,7 @@ $calculate-right-block-w: 525px;
       .small-title {
         margin-bottom: 15px;
       }
-      margin-bottom: 80px;
+      margin-bottom: 69px;
     }
     .ui-slider-block {
       margin-bottom: 70px;
@@ -112,7 +116,7 @@ $calculate-right-block-w: 525px;
     }
     .cross-browser-adaptation {
       .small-title {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       }
       text-align: left;
       .browsers-list {
@@ -123,21 +127,51 @@ $calculate-right-block-w: 525px;
         }
       }
     }
+    margin-bottom: 138px;
   }
   .right-block {
     float: right;
     text-align: left;
     width: $calculate-right-block-w;
-    .cross-browser-adaptation {
-      .small-title {
-        margin-bottom: 30px;
-      }
-      .mobile-adaptation-list {
-        li {
-          display: inline-block;
+    .small-title {
+      margin-bottom: 20px;
+    }
+      .mobile-adaptation-list li {
           margin-right: 65px;
-        }
+        margin-bottom: 90px;
       }
+    .content-options-list li {
+        margin-right: 50px;
+    }
+    .content-options-list {
+      margin-bottom: 60px;
+    }
+    .seo-options-list {
+      margin-bottom: 63px;
+    }
+    .seo-options-list li {
+      margin-right: 15px; }
+    .another-options-list li {
+      margin-right: 90px;
+      margin-bottom: 30px;
+    }
+    .mobile-adaptation-list,
+    .seo-options-list,
+    .another-options-list,
+    .content-options-list {
+      li {
+        display: inline-block;
+      }
+    }
+    margin-bottom: 138px;
+  }
+  .general-price-container {
+    margin: 0 auto;
+    text-align: center;
+    .general-price {
+      position: relative;
+      top: 7px;
+      margin-right: 43px;
     }
   }
 }

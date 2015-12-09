@@ -1033,29 +1033,31 @@ form input[type=submit] {
   .calculate .middle-title {
     margin-bottom: 66px; }
   .calculate .general-price {
-    position: absolute;
-    right: 600px;
-    bottom: -160px;
-    color: #303030;
+    display: inline-block;
+    color: #333;
     font-size: 30px;
     font-family: "Circe-Light", sans-serif; }
     .calculate .general-price span {
-      font-family: "Circe-Regular", sans-serif; }
+      font-size: 36px;
+      font-family: "Circe-Bold", sans-serif; }
       .calculate .general-price span.price {
         margin-left: 10px; }
   .calculate .order-btn {
-    position: absolute;
-    right: 377px;
-    bottom: -165px;
-    height: 61px;
-    line-height: 63px;
-    font-family: "Circe-Bold", sans-serif; }
+    width: auto;
+    display: inline-block;
+    padding: 0 84px;
+    color: #333;
+    height: 50px;
+    line-height: 51px;
+    font-family: "Circe-Bold", sans-serif;
+    font-size: 24px; }
   .calculate .left-block {
     float: left;
     width: 585px;
-    text-align: left; }
+    text-align: left;
+    margin-bottom: 138px; }
     .calculate .left-block .scenario {
-      margin-bottom: 80px; }
+      margin-bottom: 69px; }
       .calculate .left-block .scenario .small-title {
         margin-bottom: 15px; }
     .calculate .left-block .ui-slider-block {
@@ -1104,7 +1106,7 @@ form input[type=submit] {
     .calculate .left-block .cross-browser-adaptation {
       text-align: left; }
       .calculate .left-block .cross-browser-adaptation .small-title {
-        margin-bottom: 30px; }
+        margin-bottom: 20px; }
       .calculate .left-block .cross-browser-adaptation .browsers-list li {
         display: inline-block;
         margin-bottom: 30px;
@@ -1112,11 +1114,35 @@ form input[type=submit] {
   .calculate .right-block {
     float: right;
     text-align: left;
-    width: 525px; }
-    .calculate .right-block .cross-browser-adaptation .small-title {
+    width: 525px;
+    margin-bottom: 138px; }
+    .calculate .right-block .small-title {
+      margin-bottom: 20px; }
+    .calculate .right-block .mobile-adaptation-list li {
+      margin-right: 65px;
+      margin-bottom: 90px; }
+    .calculate .right-block .content-options-list li {
+      margin-right: 50px; }
+    .calculate .right-block .content-options-list {
+      margin-bottom: 60px; }
+    .calculate .right-block .seo-options-list {
+      margin-bottom: 63px; }
+    .calculate .right-block .seo-options-list li {
+      margin-right: 15px; }
+    .calculate .right-block .another-options-list li {
+      margin-right: 90px;
       margin-bottom: 30px; }
-    .calculate .right-block .cross-browser-adaptation .mobile-adaptation-list li {
-      display: inline-block;
-      margin-right: 65px; }
+    .calculate .right-block .mobile-adaptation-list li,
+    .calculate .right-block .seo-options-list li,
+    .calculate .right-block .another-options-list li,
+    .calculate .right-block .content-options-list li {
+      display: inline-block; }
+  .calculate .general-price-container {
+    margin: 0 auto;
+    text-align: center; }
+    .calculate .general-price-container .general-price {
+      position: relative;
+      top: 7px;
+      margin-right: 43px; }
 
 /*# sourceMappingURL=main.css.map */
