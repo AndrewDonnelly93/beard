@@ -412,7 +412,7 @@
 .ui-slider-horizontal {
 	position: relative;
 	width: 559px;
-	height: 30px;
+	height: 40px;
 	background: transparent;
 	display: inline-block;
 	border: 0;
@@ -424,7 +424,7 @@
 	content: '';
 	background: #000;
 	top: 14px;
-	bottom: 14px;
+	bottom: 24px;
 	left: 0;
 	right: -22px;
 }

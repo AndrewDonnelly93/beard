@@ -61,6 +61,7 @@ $bg-color: #a17919;
 }
 
 body {
+  position: relative;
   width: 100%;
   min-width: $layout-w;
   max-width: 100%;
@@ -152,6 +153,15 @@ body {
       size: 30px;
     }
   }
+}
+
+.extrasmall-title {
+  font: {
+    family: "Circe-Bold", sans-serif;
+    size: 18px;
+  }
+  color: $black;
+  text-transform: uppercase;
 }
 
 .link {

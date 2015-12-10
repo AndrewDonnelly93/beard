@@ -3,7 +3,7 @@ $horizontal-img-h: 233px;
 $works-list-margin: 16px;
 
 .our-work {
-  text-align: center;
+  text-align: left;
   padding: 72px 0 120px;
   background: $green;
   .layout-center-wrapper {
@@ -13,6 +13,14 @@ $works-list-margin: 16px;
     }
     .watch-project {
       margin-bottom: 20px;
+    }
+  }
+  .works-list-wrapper {
+    width: $layout-w;
+    margin: 0 auto;
+    display: block;
+    @media (min-width: $horizontal-img-w * 3 + $works-list-margin * 2) {
+      width: $horizontal-img-w * 3 + $works-list-margin * 2;
     }
   }
   .works-list {
@@ -49,3 +57,108 @@ $works-list-margin: 16px;
     }
   }
 }
+
+.work {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  padding-top: 300px;
+  .extrasmall-title {
+    margin-bottom: 30px;
+    &.desktop {
+      width: 800px;
+    }
+    &.mobile-version {
+      position: absolute;
+      width: 246px;
+      right: -3px;
+      text-align: center;
+      top: 30px;
+    }
+  }
+  .work-picture {
+    width: 100%;
+  }
+  &.active {
+    display: block;
+  }
+}
+
+#coffee {
+  background: #e6c307;
+  .work-picture {
+    height: 2986px;
+    background: url(../images/works/coffee.png) no-repeat center 0;
+  }
+}
+
+#wallpapers {
+  background: #ff0068;
+  .work-picture {
+    height: 2948px;
+    background: url(../images/works/wallpapers.png) no-repeat center 0;
+  }
+}
+
+#grimm {
+  background: #ffc946;
+  .extrasmall-title.mobile-version {
+    top: 60px;
+  }
+  .work-picture {
+    height: 3434px;
+    background: url(../images/works/grimm.png) no-repeat center 0;
+  }
+}
+
+#barbershop {
+  background: #ececec;
+  .work-picture {
+    height: 2706px;
+    background: url(../images/works/barbershop.png) no-repeat center 0;
+  }
+}
+
+#rha {
+  .extrasmall-title {
+    color: $base-color;
+  }
+  background: #3d3935;
+  .work-picture {
+    height: 3155px;
+    background: url(../images/works/rha.png) no-repeat center 0;
+  }
+}
+
+#custom {
+  background: #ffd700;
+  .work-picture {
+    height: 2571px;
+    background: url(../images/works/custom.png) no-repeat center 0;
+  }
+}
+
+#rha-academy {
+  background: #efefef;
+  .work-picture {
+    height: 1420px;
+    background: url(../images/works/rha-academy.png) no-repeat center 0;
+  }
+}
+
+#interior {
+  background: #efefef;
+  .work-picture {
+    height: 2668px;
+    background: url(../images/works/interior.png) no-repeat center 0;
+  }
+}
+
+
+

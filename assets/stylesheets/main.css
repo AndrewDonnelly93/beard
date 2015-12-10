@@ -104,6 +104,7 @@ input::-webkit-datetime-edit-fields-wrapper {
   padding: 0; }
 
 body {
+  position: relative;
   width: 100%;
   min-width: 1176px;
   max-width: 100%;
@@ -176,6 +177,12 @@ body {
     position: relative;
     font-family: "Circe-Bold", sans-serif;
     font-size: 30px; }
+
+.extrasmall-title {
+  font-family: "Circe-Bold", sans-serif;
+  font-size: 18px;
+  color: #333;
+  text-transform: uppercase; }
 
 .link {
   text-decoration: underline; }
@@ -781,7 +788,7 @@ form input[type=submit] {
   }
 }*/
 .our-work {
-  text-align: center;
+  text-align: left;
   padding: 72px 0 120px;
   background: #9EFFB9; }
   .our-work .layout-center-wrapper {
@@ -790,6 +797,13 @@ form input[type=submit] {
       margin-bottom: 16px; }
     .our-work .layout-center-wrapper .watch-project {
       margin-bottom: 20px; }
+  .our-work .works-list-wrapper {
+    width: 1176px;
+    margin: 0 auto;
+    display: block; }
+    @media (min-width: 1361px) {
+      .our-work .works-list-wrapper {
+        width: 1361px; } }
   .our-work .works-list {
     text-align: left;
     display: inline-block;
@@ -818,6 +832,84 @@ form input[type=submit] {
           margin-right: 16px; }
         .our-work .works-list li:nth-child(3n) {
           margin-right: 0; } }
+
+.work {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  padding-top: 300px; }
+  .work .extrasmall-title {
+    margin-bottom: 30px; }
+    .work .extrasmall-title.desktop {
+      width: 800px; }
+    .work .extrasmall-title.mobile-version {
+      position: absolute;
+      width: 246px;
+      right: -3px;
+      text-align: center;
+      top: 30px; }
+  .work .work-picture {
+    width: 100%; }
+  .work.active {
+    display: block; }
+
+#coffee {
+  background: #e6c307; }
+  #coffee .work-picture {
+    height: 2986px;
+    background: url(../images/works/coffee.png) no-repeat center 0; }
+
+#wallpapers {
+  background: #ff0068; }
+  #wallpapers .work-picture {
+    height: 2948px;
+    background: url(../images/works/wallpapers.png) no-repeat center 0; }
+
+#grimm {
+  background: #ffc946; }
+  #grimm .extrasmall-title.mobile-version {
+    top: 60px; }
+  #grimm .work-picture {
+    height: 3434px;
+    background: url(../images/works/grimm.png) no-repeat center 0; }
+
+#barbershop {
+  background: #ececec; }
+  #barbershop .work-picture {
+    height: 2706px;
+    background: url(../images/works/barbershop.png) no-repeat center 0; }
+
+#rha {
+  background: #3d3935; }
+  #rha .extrasmall-title {
+    color: #ffffff; }
+  #rha .work-picture {
+    height: 3155px;
+    background: url(../images/works/rha.png) no-repeat center 0; }
+
+#custom {
+  background: #ffd700; }
+  #custom .work-picture {
+    height: 2571px;
+    background: url(../images/works/custom.png) no-repeat center 0; }
+
+#rha-academy {
+  background: #efefef; }
+  #rha-academy .work-picture {
+    height: 1420px;
+    background: url(../images/works/rha-academy.png) no-repeat center 0; }
+
+#interior {
+  background: #efefef; }
+  #interior .work-picture {
+    height: 2668px;
+    background: url(../images/works/interior.png) no-repeat center 0; }
 
 .chronology {
   padding-top: 90px; }
@@ -1140,9 +1232,11 @@ form input[type=submit] {
   .calculate .general-price-container {
     margin: 0 auto;
     text-align: center; }
+    .calculate .general-price-container .left-block {
+      text-align: right; }
+    .calculate .general-price-container .right-block {
+      text-align: left; }
     .calculate .general-price-container .general-price {
-      position: relative;
-      top: 7px;
-      margin-right: 43px; }
+      position: relative; }
 
 /*# sourceMappingURL=main.css.map */

@@ -25,6 +25,7 @@
     <![endif]-->
 </head>
 <body>
+<div class="phone"></div>
 <section class="main">
     <div class="layout-center-wrapper">
         <header class="clearfix">
@@ -52,7 +53,7 @@
         </div>
         <div class="section-description calculate-price">Посчитайте стоимость<br>
             своего сайта. Нажмите на кнопулю.</div>
-        <a href="#" class="btn">Посчитать сайт</a>
+        <a href="#calculator" class="btn go-internal">Посчитать сайт</a>
     </div>
 </section>
 <section class="our-work">
@@ -61,26 +62,28 @@
         <div class="section-description watch-project">Кликай по картинкам снизу, чтобы просмотреть проект
         </div>
     </div>
-    <ul class="works-list">
-        <li>
-            <a href="" class="img-link"><img src="assets/images/portfolio/1-grimm.jpg" alt="project-img" class="project-img"></a>
-        <li>
-            <a href="" class="img-link"><img src="assets/images/portfolio/2-barbershop.jpg" alt="project-img" class="project-img"></a>
-        <li>
-            <a href="" class="img-link"><img src="assets/images/portfolio/3-rha.jpg" alt="project-img" class="project-img"></a>
-        <li>
-            <a href="" class="img-link"><img src="assets/images/portfolio/4-interior.jpg" alt="project-img" class="project-img"></a>
-        <li>
-            <a href="" class="img-link"><img src="assets/images/portfolio/5-rha-academy.jpg" alt="project-img" class="project-img"></a>
-        <li>
-            <a href="" class="img-link"><img src="assets/images/portfolio/6-custom.jpg" alt="project-img" class="project-img"></a>
-        <li>
-            <a href="" class="img-link"><img src="assets/images/portfolio/7-wallpaper.jpg" alt="project-img" class="project-img"></a>
-        <li>
-            <a href="" class="img-link"><img src="assets/images/portfolio/8-coffee.jpg" alt="project-img" class="project-img"></a>
-    </ul>
+    <div class="works-list-wrapper">
+        <ul class="works-list">
+            <li>
+                <a href="#grimm" class="img-link"><img src="assets/images/portfolio/1-grimm.jpg" alt="project-img" class="project-img"></a>
+            <li>
+                <a href="#barbershop" class="img-link"><img src="assets/images/portfolio/2-barbershop.jpg" alt="project-img" class="project-img"></a>
+            <li>
+                <a href="#rha" class="img-link"><img src="assets/images/portfolio/3-rha.jpg" alt="project-img" class="project-img"></a>
+            <li>
+                <a href="#interior" class="img-link"><img src="assets/images/portfolio/4-interior.jpg" alt="project-img" class="project-img"></a>
+            <li>
+                <a href="#rha-academy" class="img-link"><img src="assets/images/portfolio/5-rha-academy.jpg" alt="project-img" class="project-img"></a>
+            <li>
+                <a href="#custom" class="img-link"><img src="assets/images/portfolio/6-custom.jpg" alt="project-img" class="project-img"></a>
+            <li>
+                <a href="#wallpapers" class="img-link"><img src="assets/images/portfolio/7-wallpaper.jpg" alt="project-img" class="project-img"></a>
+            <li>
+                <a href="#coffee" class="img-link"><img src="assets/images/portfolio/8-coffee.jpg" alt="project-img" class="project-img"></a>
+        </ul>
+    </div>
 </section>
-<section class="calculate">
+<section class="calculate" id="calculator">
     <div class="layout-center-wrapper clearfix">
         <form action="" class="calculation-form">
         <div class="middle-title">Давай посчитаем твой сайт</div>
@@ -175,9 +178,13 @@
             </article>
         </article>
             </div>
-            <div class="general-price-container">
-                <div class="general-price">Итого: <span><span class="price">44 000</span> руб.</span></div><!--
-                --><a href="" class="btn order-btn">Беру!</a>
+            <div class="general-price-container clearfix">
+                <article class="left-block">
+                    <div class="general-price">Итого: <span><span class="price">44 000</span> руб.</span></div>
+                </article>
+                <article class="right-block">
+                    <a href="" class="btn order-btn">Беру!</a>
+                </article>
             </div>
         </form>
     </div>
@@ -385,6 +392,58 @@
         </tr>
     </table>
 </section>
+
+<section class="work" id="coffee">
+    <div class="extrasmall-title">Десктопная версия</div>
+    <div class="work-picture"></div>
+</section>
+
+<section class="work" id="wallpapers">
+    <div class="extrasmall-title">Десктопная версия</div>
+    <div class="work-picture"></div>
+</section>
+
+<section class="work" id="custom">
+    <div class="extrasmall-title">Десктопная версия</div>
+    <div class="work-picture"></div>
+</section>
+
+<section class="work" id="grimm">
+    <div class="layout-center-wrapper">
+        <div class="extrasmall-title desktop">Десктопная версия</div>
+        <div class="extrasmall-title mobile-version">Мобильная версия</div>
+    </div>
+    <div class="work-picture"></div>
+</section>
+
+<section class="work" id="barbershop">
+    <div class="layout-center-wrapper">
+        <div class="extrasmall-title desktop">Десктопная версия</div>
+        <div class="extrasmall-title mobile-version">Мобильная версия</div>
+    </div>
+    <div class="work-picture"></div>
+</section>
+
+<section class="work" id="rha">
+    <div class="layout-center-wrapper">
+        <div class="extrasmall-title desktop">Десктопная версия</div>
+        <div class="extrasmall-title mobile-version">Мобильная версия</div>
+    </div>
+    <div class="work-picture"></div>
+</section>
+
+<section class="work" id="rha-academy">
+    <div class="extrasmall-title">Десктопная версия</div>
+    <div class="work-picture"></div>
+</section>
+
+<section class="work" id="interior">
+    <div class="extrasmall-title">Десктопная версия</div>
+    <div class="work-picture"></div>
+</section>
+
+
+
 <script src="assets/javascripts/fancyselect.js"></script>
 <script src="assets/javascripts/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="assets/javascripts/owl.carousel.min.js"></script>
